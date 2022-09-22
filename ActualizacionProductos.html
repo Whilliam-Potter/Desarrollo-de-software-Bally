@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizacion del Administrador</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="estilo_3.css">
+</head>
+<body>
+    <header>
+        <h1><span style="color: white;">B</span>a<span style="color: white;">ll</span>y</h1>
+        <nav>          
+            <ul class="Menu-SuperAdministrador">
+                <li>
+                    <a href="#">SuperAdministrador</a>
+                    <ul class="MenuVertical-SuperAdministrador">
+                        <li><a href="#">Usuario SuperAdministrador</a></li>
+                        <li><a href="#">Cerrar Sesion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>  
+    </header>  
+    <section>
+        <nav class="MenuDeGestion">
+            <h2>MENU</h2><img class="Logo" src="img/barra.png" alt="Logo de bally">
+            <ul>
+                <a href="Dashboard.html"><h3>INICIO</h3></a>
+                <h3>Registro:</h3>
+                <ul class="MenuRegistro">
+                    <li><a href="RegistroAdministrador.html">Administrador</a></li>
+                    <li><a href="RegistroUsuario.html">Usuario</a></li>
+                </ul>
+                <h3>Atualizacion de Datos:</h3>
+                <ul class="MenuActualizacionDatos">
+                    <li><a href="ActualizacionAdministrador.html">Administrador</a></li>
+                    <li><a href="ActualizacionUsuario.html">Usuario</a></li>
+                </ul>
+                <h3>Gestion de Productos:</h3>
+                <ul class="MenuActualizacionDatos">
+                    <li><a href="ActualizacionProductos.html">Porductos</a></li>
+                </ul>
+            </ul>
+        </nav>  
+    </section>    
+    <div class="TablaActualizacion">
+        <div class="Opciones">
+            <div class="Herramientas">
+                <ul>
+                    <li><span><input type="checkbox"></span></li>
+                    <li>
+                        <button>
+                            <i class="material-icons" title="Añadir">add_circle</i>
+                        </button>
+                    </li>
+                    <li>
+                        <button>
+                            <i class="material-icons" title="Editar">edit</i>
+                        </button>
+                    </li>
+                    <li>
+                        <button>
+                            <i class="material-icons" title="Borrar">delete</i>
+                        </button>
+                    </li>
+                    <li>
+                        <button>
+                            <i class="material-icons" title="link">share</i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="Titulo3">Tabla de Productos</div>
+            <div class="Buscar">
+                <input class="EntradaDato" id="" name="" type="text"/>    
+            </div>
+        </div>
+        <table class="TablaDatos">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Estado</th>
+                    <th>Categoria</th>
+                    <th>Marca</th>
+                    <th>Color</th>
+                    <th>Disponibilidad</th>
+                </tr>
+            </thead>    
+            <tbody>
+                <tr>
+                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
+                    <td><span class="Disponible"></span></td>
+                    <td>Zapatos</td>
+                    <td>Nike</td>
+                    <td>Negro</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
+                    <td><span class="Disponible"></span></td>
+                    <td>Zapatos</td>
+                    <td>Puma</td>
+                    <td>Rojo</td>
+                    <td>45</td>
+                </tr>
+                <tr>
+                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
+                    <td><span class="Disponible"></span></td>
+                    <td>Zapatos</td>
+                    <td>Adidas</td>
+                    <td>Blanco</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
+                    <td><span class="Agotado"></span></td>
+                    <td>Zapatos</td>
+                    <td>Nike</td>
+                    <td>Azul</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
+                    <td><span class="Disponible"></span></td>
+                    <td>Zapatos</td>
+                    <td>Puma</td>
+                    <td>Negro</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
+                    <td><span class="Disponible"></span></td>
+                    <td>Zapatos</td>
+                    <td>Nike</td>
+                    <td>Negro</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
+                    <td><span class="Agotado"></span></td>
+                    <td>Zapatos</td>
+                    <td>Converse</td>
+                    <td>Rojo Oscuro</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
+                    <td><span class="Agotado"></span></td>
+                    <td>Zapatos</td>
+                    <td>Converse</td>
+                    <td>Verde Oscuro</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
+                    <td><span class="Agotado"></span></td>
+                    <td>Zapatos</td>
+                    <td>Converse</td>
+                    <td>Azul Oscuro</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
+                    <td><span class="Disponible"></span></td>
+                    <td>Zapatos</td>
+                    <td>George Cleverley</td>
+                    <td>Marron Cuero</td>
+                    <td>50</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="Desplazamiento">
+            <div class="ListaObjetos">
+                Mostrar
+                <select class="n-Entradas" name="n-entradas" id="n-entradas">
+                    <option value="15">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="15">15</option>
+                </select>
+                Entradas
+            </div>
+            <div class="Paginas">
+                <ul>
+                    <li><span class="Activado">1</span></li>
+                    <li><button>2</button></li>
+                    <li><button>3</button></li>
+                    <li><button>4</button></li>
+                    <li><span>...</span></li>
+                    <li><button>9</button></li>
+                    <li><button>10</button></li>    
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

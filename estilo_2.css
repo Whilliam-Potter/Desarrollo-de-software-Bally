@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+header{
+
+    display: flex;
+    height: 70px; 
+    justify-content: space-between;
+    background-color: #333;
+    align-items: center;
+    padding: 30px;
+
+}
+
+
+body{
+
+    background-image: url(img/Desktop.jpg);
+    background-size: cover;
+
+}
+
+h1{
+
+    color: white;
+
+}
+
+nav{
+
+    max-width: 900px; 
+    font-size: 20px;
+
+}
+
+/* Menu del Super Administrador */
+
+.Menu-SuperAdministrador{
+
+    list-style: none;
+
+}
+
+.Menu-SuperAdministrador > li > a{
+
+    display: block;
+    padding: 23px 55px;
+    color: white;
+    text-decoration: none;
+    
+}
+
+.Menu-SuperAdministrador >li:hover{
+
+    background-color: none;
+    
+
+}
+
+.MenuVertical-SuperAdministrador{
+
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 350px;
+    background-color: rgba(0, 0, 0, .5);
+
+}
+
+.Menu-SuperAdministrador li:hover .MenuVertical-SuperAdministrador{
+
+    display: block;
+
+}
+
+.MenuVertical-SuperAdministrador li:hover{
+
+    background-color:  rgba(0, 0, 0, .5);
+
+}
+
+.MenuVertical-SuperAdministrador li a{
+
+    display: block;
+    color: white;
+    height: 30px;
+    text-decoration: none;
+    
+}
+
+/* Logo */
+
+.Logo{
+
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding-left: 10px;
+
+}
+
+/*Formulario*/
+
+.FormularioAdministrador{
+
+
+    width: 700px;
+    background: rgba(0, 0, 0, .5);;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+
+}
+
+.FormularioAdministrador h4 {
+
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+.Control{
+
+    width: 100%;
+    background: #333;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1 solid #1f53c5;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 18px;
+    color: white;
+}
+
+.FormularioAdministrador p{
+
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+
+}
+
+div{
+
+    display: flex;
+    height: 70px; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+
+}
+
+.FormularioAdministrador .Boton{
+
+    /*display: flex;*/
+    width: 40%;
+    background: #333;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}
+
+.FormularioAdministrador .Reset{
+
+    /*display: flex;*/
+    width: 40%;
+    background: #333;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}
+
+
+.FormularioAdministrador .Generar{
+
+    width: 100%;
+    background: #333;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}
+
+/* Menus De Gestion */
+
+.MenuDeGestion{
+
+    padding-left: 0px;
+    width: 10%;
+    height: 9%;
+    position: fixed;
+    transition: .4s all;
+    z-index:1;
+
+}
+
+.MenuDeGestion ul{
+    
+    padding: 0px;
+    text-align: center;
+    list-style: none;
+
+}
+
+.MenuDeGestion li{
+
+    transition: .3s all;
+
+}
+
+.MenuDeGestion a{
+
+    text-decoration: none;
+    list-style: none;
+    transition: .3s all;
+    font-size: 0px;
+    padding: 0px;
+
+}
+
+.MenuDeGestion h2{
+
+    text-align: center;
+    color: white;
+    padding: 7px;
+    padding-bottom: 7px;
+    font-size: 0px;
+
+}
+
+.MenuDeGestion h3{
+
+    text-align: center;
+    color: white;
+    padding: 7px;
+    padding-bottom: 7px;
+    font-size: 0px;
+
+}
+
+.MenuDeGestion:hover{
+
+    width: 10%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+
+}
+
+.MenuDeGestion:hover h2{
+
+    padding: 15px;
+    font-size: 30px;
+    display:block;
+    padding:20px;
+
+}
+
+.MenuDeGestion:hover h3{
+
+    padding: 15px;
+    font-size: 20px;
+    display:block;
+    padding:20px;
+
+}
+
+.MenuDeGestion:hover a{
+
+    padding: 15px;
+    font-size: 20px;
+    color: white;
+    display:block;
+    padding:20px;
+
+}
+
+.MenuDeGestion:hover .Logo{
+    height: 0px;
+}
+
+.MenuDeGestion:hover li{
+
+    border-top: 1px solid black;
+
+    width: 100%;
+
+}
+
+.MenuDeGestion:hover ul:last-of-type{
+
+    border-bottom: 1px solid black;
+
+}
+
+.MenuDeGestion:hover a:hover{
+
+    font-size: 25px;
+    padding: 30px 0px;
+    background-color:  rgba(0, 0, 0, .5);
+
+}

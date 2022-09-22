@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo_2.css">
+    <title>Registro de Administrador</title>
+</head>
+<body>
+    <header>
+        <h1><span style="color: white;">B</span>a<span style="color: white;">ll</span>y</h1>
+        <nav>          
+            <ul class="Menu-SuperAdministrador">
+                <li>
+                    <a href="#">SuperAdministrador</a>
+                    <ul class="MenuVertical-SuperAdministrador">
+                        <li><a href="#">Usuario SuperAdministrador</a></li>
+                        <li><a href="#">Cerrar Sesion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>  
+    </header>  
+        <nav class="MenuDeGestion">
+            <h2>MENU</h2><img class="Logo" src="img/barra.png" alt="Logo de bally">
+            <ul>
+                <a href="Dashboard.html"><h3>INICIO</h3></a>
+                <h3>Registro:</h3>
+                <ul class="MenuRegistro">
+                    <li><a href="RegistroAdministrador.html">Administrador</a></li>
+                    <li><a href="RegistroUsuario.html">Usuario</a></li>
+                </ul>
+                <h3>Atualizacion de Datos:</h3>
+                <ul class="MenuActualizacionDatos">
+                    <li><a href="ActualizacionAdministrador.html">Administrador</a></li>
+                    <li><a href="ActualizacionUsuario.html">Usuario</a></li>
+                </ul>
+                <h3>Gestion de Productos:</h3>
+                <ul class="MenuActualizacionDatos">
+                    <li><a href="ActualizacionProductos.html">Porductos</a></li>
+                </ul>
+            </ul>
+        </nav>      
+    <section  class="FormularioAdministrador">
+        <h4>Formulario de Registro del Administrador</h4>
+        <form action="/formulario" method="get">
+            <label for="nombre"></label>
+            <input class="Control" id="nombre" name="nombre" 
+            placeholder="Nombre" type="text"/> <br>
+            <br>
+            <label for="nombre"></label>
+            <input class="Control" id="nombre" name="nombre" 
+            placeholder="Segundo Nombre" type="text"/> <br>
+            <br>
+            <label for="apellido"></label>
+            <input class="Control" id="apellido" name="apellido" 
+            placeholder="Apellido" type="text"/> <br>
+            <br>
+            <label for="nombre"></label>
+            <input class="Control" id="nombre" name="nombre" 
+            placeholder="Segundo Apellido" type="text"/> <br>
+            <br>
+            <label for="nombre"></label>
+            <input class="Control" id="nombre" name="nombre" 
+            placeholder="Correo:@gmail/@outlook" type="email"/> <br>
+            <br>
+            <label for="nombre"></label>
+            <input class="Control" id="nombre" name="nombre" 
+            placeholder="Confirmacion del Correo" type="email"/> <br>
+            <br>
+            <label for="nombre"></label>
+            <input class="Control" id="nombre" name="nombre" 
+            placeholder="Cedula" type="text"/> <br>
+            <br>
+            <label for="nombre"></label>
+            <input class="Control" id="nombre" name="nombre" 
+            placeholder="Numero" type="text"/> <br>
+            <br>
+            <label for="nombre"></label>
+            <input class="Control" id="nombre" name="nombre" 
+            placeholder="Nacionalidad" type="text"/> <br>
+            <br>
+            <label for="nombre"></label>
+            <input class="Control" id="nombre" name="nombre" 
+            placeholder="DD/MM/YYYY" type="date"/> <br>
+            <br>
+            <label for="nombre"></label>
+            <input class="Control" id="nombre" name="nombre" 
+            placeholder="Generar Usuario" type="text"/> <br>
+            <br>
+            <button class="Generar" type="submit">Generar</button> <br><br>
+            <label for="nombre"></label>
+            <input class="Control" id="nombre" name="nombre" 
+            placeholder="Generar Contraseña" type="text"/> <br>
+            <br>
+            <button class="Generar" type="submit">Generar</button> <br><br>
+            <div>
+                <button class="Reset" type="reset">reset</button>
+                <button class="Boton" type="submit">enviar</button>
+                <!--button: Mejor etiqueta para los borontes-->
+            </div>
+        </form>   
+    </section>
+    <footer>
+        <br><br><br><br>
+    </footer>
+</body>
+</html>

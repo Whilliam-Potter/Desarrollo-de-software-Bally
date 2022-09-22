@@ -1,0 +1,548 @@
+:root{
+
+    --primary-color: white;
+    --secondary-color: rgba(0, 0, 0, 0.5);
+    --highlight-color:  #333;
+
+    --dt-status-Disponible-color: rgb(19, 243, 97);
+    --dt-status-Away-color: rgb(248, 145, 10);
+    --dt-status-NoDisponible-color: rgb(101, 103, 101);
+    --dt-status-Agotado-color: rgb(101, 103, 101);
+
+    --dt-padding: 12px;
+    --dt-padding-s: 6px;
+    --dt-padding-xs: 2px;
+
+    --dt-border-radius:3px;
+
+    --dt-background-color-container: rgba(0, 0, 0, 0.5);
+    --dt-border-color:var(--secondary-color);
+    --dt-bg-color:var(--highlight-color);
+    --dt-text-color:var(--primary-color);
+    --dt-big-active-button:var(--highlight-color);
+    --dt-text-color-button:var(--primary-color);
+    --dt-text-color-active-button:var(--primary-color);
+    --dt-hover-cell-color:var(--highlight-color);
+    --dt-even-row-color:var(--secondary-color);
+    --dt-focus-color:var(--highlight-color);
+    --dt-input-background-color:var(--secondary-color);
+    --dt-input-color:var(--primary-color);
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+header{
+
+    display: flex;
+    height: 70px; 
+    justify-content: space-between;
+    background-color: #333;
+    align-items: center;
+    padding: 30px;
+
+}
+
+body{
+
+    background-image: url(img/Desktop.jpg);
+    background-size: cover;
+
+}
+
+nav{
+
+    max-width: 900px; 
+    font-size: 20px;
+
+}
+
+/* Menu del Super Administrador */
+
+.Menu-SuperAdministrador{
+
+    list-style: none;
+
+}
+
+.Menu-SuperAdministrador > li > a{
+
+    display: block;
+    padding: 23px 55px;
+    color: white;
+    text-decoration: none;
+    
+}
+
+.Menu-SuperAdministrador >li:hover{
+
+    background-color: none;
+    
+
+}
+
+.MenuVertical-SuperAdministrador{
+
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 350px;
+    background-color: rgba(0, 0, 0, .5);
+
+}
+
+.Menu-SuperAdministrador li:hover .MenuVertical-SuperAdministrador{
+
+    display: block;
+
+}
+
+.MenuVertical-SuperAdministrador li:hover{
+
+    background-color:  rgba(0, 0, 0, .5);
+
+}
+
+.MenuVertical-SuperAdministrador li a{
+
+    display: block;
+    color: white;
+    height: 30px;
+    text-decoration: none;
+    
+}
+
+/* Logo */
+
+.Logo{
+
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding-left: 10px;
+
+}
+
+/* Menus De Gestion */
+
+.MenuDeGestion{
+
+    padding-left: 0px;
+    width: 10%;
+    height: 9%;
+    position: fixed;
+    transition: .4s all;
+    z-index:1;
+
+}
+
+.MenuDeGestion ul{
+    
+    padding: 0px;
+    text-align: center;
+    list-style: none;
+
+}
+
+.MenuDeGestion li{
+
+    transition: .3s all;
+
+}
+
+.MenuDeGestion a{
+
+    text-decoration: none;
+    list-style: none;
+    transition: .3s all;
+    font-size: 0px;
+    padding: 0px;
+
+}
+
+.MenuDeGestion h2{
+
+    text-align: center;
+    color: white;
+    padding: 7px;
+    padding-bottom: 7px;
+    font-size: 0px;
+
+}
+
+.MenuDeGestion h3{
+
+    text-align: center;
+    color: white;
+    padding: 7px;
+    padding-bottom: 7px;
+    font-size: 0px;
+
+}
+
+.MenuDeGestion:hover{
+
+    width: 10%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+
+}
+
+.MenuDeGestion:hover h2{
+
+    padding: 15px;
+    font-size: 30px;
+    display:block;
+    padding:20px;
+
+}
+
+.MenuDeGestion:hover h3{
+
+    padding: 15px;
+    font-size: 20px;
+    display:block;
+    padding:20px;
+
+}
+
+.MenuDeGestion:hover a{
+
+    padding: 15px;
+    font-size: 20px;
+    color: white;
+    display:block;
+    padding:20px;
+
+}
+
+.MenuDeGestion:hover .Logo{
+    height: 0px;
+}
+
+.MenuDeGestion:hover li{
+
+    border-top: 1px solid black;
+
+    width: 100%;
+
+}
+
+.MenuDeGestion:hover ul:last-of-type{
+
+    border-bottom: 1px solid black;
+
+}
+
+.MenuDeGestion:hover a:hover{
+
+    font-size: 25px;
+    padding: 30px 0px;
+    background-color:  rgba(0, 0, 0, .5);
+
+}
+
+/*Tabla De Actualizacion*/
+
+.material-icons{
+
+    font-size: 19px;
+
+}
+
+.TablaActualizacion .Titulo{
+
+    display: flex;
+    width: 800px;
+    margin-right: 250px;
+    font-size: 24px;
+    align-items: center;
+    /*background-color:  rgba(215, 9, 9, 0.558);*/
+
+}
+
+.TablaActualizacion .Titulo2{
+
+    display: flex;
+    width: 550px;
+    margin-right: 250px;
+    font-size: 24px;
+    align-items: center;
+    /*background-color:  rgba(215, 9, 9, 0.558);*/
+
+}
+
+.TablaActualizacion .Titulo3{
+
+    display: flex;
+    width: 450px;
+    margin-right: 250px;
+    font-size: 24px;
+    align-items: center;
+    /*background-color:  rgba(215, 9, 9, 0.558);*/
+
+}
+
+.TablaActualizacion{
+
+    font-family: 'Times New Roman', Times, serif;
+    background-color: var(--dt-background-color-container);
+    border-radius: var(--dt-border-radius);
+    color: var(--dt-text-color);
+    width: 1200px;
+    margin: auto;
+    margin-top: 100px;
+    font-size: 20px;
+
+}
+
+.Opciones{
+
+    border-bottom: solid 1px var(--dt-border-color);
+    padding: var(--dt-padding);
+    display: flex;
+    align-items: baseline;
+
+}
+
+.TablaActualizacion .Opciones .Buscar{
+
+    width: 30%;
+
+}
+
+.TablaActualizacion .Opciones .Buscar .EntradaDato{
+
+    width: 100%;
+    background-color: var(--dt-input-background-color);
+    display: block;
+    box-sizing: border-box;
+    border-radius: var(--dt-border-radius);
+    border: solid 1px var(--dt-border-color);
+    color: var(--dt-input-color);
+    
+}
+
+.TablaActualizacion .Opciones .Herramientas{
+
+    width: 70%;
+
+}
+
+.TablaActualizacion .Opciones .Herramientas ul{
+
+    margin:0;
+    padding:0;
+    display: flex;
+    justify-content: start;
+    align-items: baseline;
+
+}
+
+.TablaActualizacion .Opciones .Herramientas ul li{
+
+    display: inline-block;
+    margin: 0 var(--dt-padding-xs);
+    align-items: baseline;
+
+}
+
+.TablaActualizacion .Desplazamiento{
+
+    padding: var(--dt-padding);
+    display: flex;
+    align-items: baseline;
+
+}
+
+.TablaActualizacion .Desplazamiento .ListaObjetos{
+
+    width: 50%;
+
+}
+
+.TablaActualizacion .Desplazamiento .Paginas{
+
+    margin-left: auto;
+    margin-right: 0;
+    width: 50%;
+
+}
+
+.TablaActualizacion .Desplazamiento .Paginas ul{
+
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+
+}
+
+.TablaActualizacion .Desplazamiento .Paginas ul li{
+
+    display: inline-block;
+    margin:0 var(--dt-padding-xs)
+}
+
+.TablaActualizacion .Desplazamiento .Paginas ul li button,
+.TablaActualizacion .Opciones .Herramientas ul li button{
+
+    color: var(--dt-text-color-button);
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: var(--dt-border-radius);
+    background: transparent;
+    cursor: pointer;
+
+}
+
+.TablaActualizacion .Desplazamiento .Paginas ul li button:hover,
+.TablaActualizacion .Opciones .Herramientas ul li button:hover{
+
+    background: var(--dt-bg-active-button);
+    color: var(--dt-text-color-active-button);
+    
+
+}
+
+.TablaActualizacion .Desplazamiento .Paginass ul li span.active{
+
+    background-color: var(--dt-bg-color);
+    border-radius: var(--dt-border-radius);
+    
+
+}
+
+
+.TablaActualizacion .Desplazamiento .Paginas ul li button,
+.TablaActualizacion .Desplazamiento .Paginas ul li span,
+.TablaActualizacion .Opciones .Herramientas ul li button{
+
+    padding: var(--dt-padding-s) var(--dt-padding);
+
+}
+
+.TablaActualizacion .TablaDatos{
+
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+.TablaActualizacion .TablaDatos,
+.TablaActualizacion .TablaDatos th,
+.TablaActualizacion .TablaDatos td{
+    padding: var(--dt-padding) var(--dt-padding);
+}
+
+.TablaActualizacion .TablaDatos th{
+
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px var(--dt-border-color);
+
+}
+
+.TablaActualizacion .TablaDatos th{
+
+    border-bottom: solid 1px var(--dt-border-color);
+
+}
+
+.TablaActualizacion .TablaDatos tbody tr:nth-child(even){
+    
+    background-color:  var(--dt-even-row-color);
+
+}
+
+.TablaActualizacion .TablaDatos tbody tr:hover{
+    
+    background-color:  var(--dt-hover-cell-color);
+
+}
+
+.TablaActualizacion .TablaDatos  tbody tr .Disponible::after,   
+.TablaActualizacion .TablaDatos  tbody tr .Away::after,
+.TablaActualizacion .TablaDatos  tbody tr .NoDisponible::after{
+
+
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
+.TablaActualizacion .TablaDatos  tbody tr .Disponible::after{
+
+    content: "Disponible";
+    color: var(--dt-status-Disponible-color);
+
+}
+
+.TablaActualizacion .TablaDatos  tbody tr .Away::after{
+
+    content: "Away";
+    color: var(--dt-status-Away-color);
+
+}
+
+.TablaActualizacion .TablaDatos  tbody tr .NoDisponible::after{
+
+    content: "NoDisponible";
+    color: var(--dt-status-NoDisponible-color);
+
+}
+
+.TablaActualizacion .TablaDatos  tbody tr .Agotado::after{
+
+    content: "Agotado";
+    color: var(--dt-status-Agotado-color);
+
+}
+
+.TablaActualizacion .TablaDatos  tbody tr .Disponible::before,   
+.TablaActualizacion .TablaDatos  tbody tr .Away::before,
+.TablaActualizacion .TablaDatos  tbody tr .NoDisponible::before,
+.TablaActualizacion .TablaDatos  tbody tr .Agotado::before{
+
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    border-radius: 50%;
+    vertical-align: middle;
+    vertical-align: middle;
+
+}
+
+.TablaActualizacion .TablaDatos  tbody tr .Disponible::before{
+
+    background-color: var(--dt-status-Disponible-color);
+
+}
+
+.TablaActualizacion .TablaDatos  tbody tr .Away::before{
+
+    background-color: var(--dt-status-Away-color);
+
+}
+
+.TablaActualizacion .TablaDatos  tbody tr .NoDisponible::before{
+
+    background-color: var(--dt-status-NoDisponible-color);
+
+}
+
+.TablaActualizacion .TablaDatos  tbody tr .Agotado::before{
+
+    background-color: var(--dt-status-NoDisponible-color);
+
+}
