@@ -1,0 +1,93 @@
+*{
+
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Times New Roman', Times, serif;
+    
+}
+
+
+header{
+
+    background-color: rgba(227, 219, 219, 0.452);
+    height: 110px;
+}
+
+body{
+    margin: 0;
+    background-image: url(img/WhisList.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer{
+
+    background-color: rgba(227, 219, 219, 0.452);
+    height: 110px;
+    margin-top: auto;
+
+}
+
+Main{
+
+    display: flex;
+    align-items: flex-start;
+    background-color: rgba(0, 0, 0, .5);
+    height: 700px;
+    width: 1500px;
+    padding-left: 30px;
+    margin-left: 30px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+h1{
+
+    color: white;
+    margin-top: 10px;
+
+}
+
+h2{
+
+    color: white;
+
+}
+
+h3{
+
+    color: white;
+
+}
+
+.Top1{
+
+    display: flex;
+    align-items: center;
+    background-color: rgb(43, 39, 39);
+    height: 70px;
+    padding-left: 30px;
+}
+
+.Top2{
+
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    height: 40px;
+    padding-left: 30px;
+}
+
+.Below{
+
+    display: flex;
+    align-items: center;
+    background-color: rgb(43, 39, 39);
+    height: 110px;
+    padding-left: 30px;
+    margin-top: auto;
+
+}
