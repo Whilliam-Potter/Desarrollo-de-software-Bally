@@ -110,8 +110,8 @@ nav{
 
 .FormularioAdministrador{
 
-
-    width: 700px;
+    max-width: 700px;
+    width: 98%;
     background: rgba(0, 0, 0, .5);;
     padding: 30px;
     margin: auto;
@@ -131,64 +131,130 @@ nav{
 
 }
 
+.formularioAdmin{
+
+    display: grid;
+    width: 100%;
+    gap:30px;
+}
+
+.nombre_input{
+    position: relative;
+}
+
 .Control{
 
     width: 100%;
     background: #333;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 16px;
     border: 1 solid #1f53c5;
-    font-family:'Times New Roman', Times, serif;
+    border-radius: 4px;
+    height: 45px;
+    line-height: 45px;
     font-size: 18px;
+    font-family:'Times New Roman', Times, serif;
+    padding: 10px;
+    transition: .3s ease all;
     color: white;
 }
 
-.FormularioAdministrador p{
+.Control:focus{
 
-    height: 40px;
-    text-align: center;
-    font-size: 18px;
-
+    border: 1px solid #d3cea0;
+    outline: none;
+    box-shadow: 3px 0px 30px rgb(163,163,163, .0.4);
 }
 
-div{
+.Error_nombreAdmin_imput{
+
+    font-size: 18px;
+    margin-bottom: 0;
+    display:none; /*Mensaje de error*/
+}
+
+.Error_nombreAdmin_imput-activo{
+    display: block;
+}
+
+.formulario__validacion-estado{
+    position: absolute;
+    right: 30px;
+    bottom: 16px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+
+/*Validación*/
+
+.GrupoAdmin-correcto 
+.formulario__validacion-estado{
+
+    color: rgb(22, 237, 6);
+    opacity: 1;
+}
+
+.GrupoAdmin-incorrecto 
+.formulario__validacion-estado{
+
+    color: rgb(230, 33, 7);
+    opacity: 1;
+}
+
+.GrupoAdmin-incorrecto 
+.nombre_input{
+    border: 1px solid rgb(230, 33, 7);
+    opacity: 1;
+}
+
+.Botones{
 
     display: flex;
-    height: 70px; 
-    justify-content: space-between;
     align-items: center;
-    padding: 10px;
-
+    justify-content: space-between;
 
 }
 
 .FormularioAdministrador .Boton{
 
-    /*display: flex;*/
     width: 40%;
     background: #333;
     border: none;
+    border-radius: 3px;
     padding: 12px;
     color: white;
+    font-weight: bold;
     margin: 16px 0;
     font-size: 16px;
+    cursor:pointer;
+    transition: .1s ease all;
+}
+
+.FormularioAdministrador .Boton:hover{
+
+    box-shadow: 3px 0px 20px #d3cea080;
 }
 
 .FormularioAdministrador .Reset{
 
-    /*display: flex;*/
     width: 40%;
     background: #333;
     border: none;
+    border-radius: 3px;
     padding: 12px;
     color: white;
+    font-weight: bold;
     margin: 16px 0;
     font-size: 16px;
+    cursor:pointer;
+    transition: .1s ease all;
 }
 
+.FormularioAdministrador .Reset:hover{
 
-.FormularioAdministrador .Generar{
+    box-shadow: 3px 0px 20px #d3cea080;
+}
+
+.FormularioAdministrador .BotonContraseña{
 
     width: 100%;
     background: #333;
@@ -197,7 +263,35 @@ div{
     color: white;
     margin: 16px 0;
     font-size: 16px;
+    cursor:pointer;
+    transition: .1s ease all;
+    
 }
+
+.FormularioAdministrador .BotonContraseña:hover{
+
+    box-shadow: 3px 0px 20px #d3cea080;
+}
+
+.FormularioAdministrador .BotonUsuario{
+
+    width: 100%;
+    background: #333;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+    cursor:pointer;
+    transition: .1s ease all;
+    
+}
+
+.FormularioAdministrador .BotonUsuario:hover{
+
+    box-shadow: 3px 0px 20px #d3cea080;
+}
+
 
 /* Menus De Gestion */
 

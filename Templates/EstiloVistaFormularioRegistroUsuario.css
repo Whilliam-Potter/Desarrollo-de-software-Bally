@@ -1,0 +1,180 @@
+body{
+    text-align: center;
+}
+
+.navegacion li{
+    list-style: none;
+}
+
+.navegacion li a{
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 10px 15px;
+}
+
+.OpcionesM,.OpcionesH{
+    padding: 0;
+}
+
+.navegacion li ul{
+    display: none;
+    position:absolute;
+}
+
+
+.navegacion li:hover>ul{
+    display: block;
+}
+
+#Inicio,#Mujeres,#Hombres,#Buscador,#Usuario,#Administracion{
+    display: inline-block;
+    
+}
+
+#Mujeres{
+    margin-left: 600px;
+}
+
+#Buscador{
+    margin-left: 300px;
+    margin-top: 13px;
+    padding: 5px;
+    position:absolute;
+}
+
+#Buscador input{
+    width: 240px;
+    height: 30px;
+    padding:0 20px;
+    font-size: 13px;
+    color: black;
+    outline: none;
+    border: 1px solid silver;
+    border-radius: 30px;
+}
+
+.boton{
+    position:absolute;
+    top: -1px;
+    left: 245px;
+    background-color: gray;
+    width: 45px;
+    height: 40px;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 60%;
+    cursor: pointer;
+}
+
+
+#Mujeres#Hombres,#Usuario,#Administracion{
+    margin-right:9px ;
+    margin-left: 9px ;
+}
+
+.parrafo{
+    margin: 5px;
+    display: table-cell;
+    padding: 5px;
+    text-align:left;
+    
+}
+
+.parrafo1{
+    margin: 5px;
+}
+
+.parrafo2,.parrafo3,.parrafo4,.parrafo5,.parrafo6,.parrafo7,.parrafo8{
+    margin: 5px;
+}
+
+select{
+    padding:5px 10px;
+    border-radius: 3px;
+    display: inline-block;
+
+}
+
+input{
+    padding:5px 10px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+button{
+    background-color: black;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    width: 42%;
+    padding: 5px; 
+}
+
+footer{
+    background: black;
+    color: white;
+    width: 94%;
+    height: 380px;
+    padding:40px;
+    position: relative;
+    margin-top: 100px;
+}
+
+.ContenedorTotal{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.ContenedorInfo1{
+    display: flex;
+    justify-content:space-around;
+}
+
+.Colum1{
+    max-width: 600px;  
+}
+
+.Colum2{
+    max-width: 600px;
+}
+
+.row1{
+    margin-top: 20px;
+    display: flex;
+}
+
+.row1 img{
+    width:36px;
+    height:36px;
+}
+
+.row1 p{
+    margin-top: 10px;
+    margin-left: 20px;
+    color: white;
+}
+
+.row2{
+    margin-top: 20px;
+    display: flex;
+}
+
+.row2 img{
+    width:36px;
+    height:36px;
+}
+
+.row2 p{
+    margin-top: 10px;
+    margin-left: 20px;
+    color: white;
+}
+
+.ContenedorInfo2{
+    max-width:100%;
+    text-align: center;
+}
+

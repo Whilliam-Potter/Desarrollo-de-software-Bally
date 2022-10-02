@@ -1,0 +1,164 @@
+.navegacion li{
+    list-style: none;
+}
+
+.navegacion li a{
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 10px 15px;
+}
+
+.OpcionesM,.OpcionesH{
+    padding: 0;
+}
+
+.navegacion li ul{
+    display: none;
+    position:absolute;
+}
+
+
+.navegacion li:hover>ul{
+    display: block;
+}
+
+#Inicio,#Mujeres,#Hombres,#Buscador,#Usuario,#Administracion{
+    display: inline-block;
+    
+}
+
+#Mujeres{
+    margin-left: 600px;
+}
+
+#Buscador{
+    margin-left: 300px;
+    margin-top: 13px;
+    padding: 5px;
+    position:absolute;
+}
+
+#Buscador input{
+    width: 240px;
+    height: 30px;
+    padding:0 20px;
+    font-size: 13px;
+    color: black;
+    outline: none;
+    border: 1px solid silver;
+    border-radius: 30px;
+}
+
+.boton{
+    position:absolute;
+    top: -1px;
+    left: 245px;
+    background-color: gray;
+    width: 45px;
+    height: 40px;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 60%;
+    cursor: pointer;
+}
+
+
+#Mujeres#Hombres,#Usuario,#Administracion{
+    margin-right:9px ;
+    margin-left: 9px ;
+}
+
+.TituloPrincipal{
+    text-align: center;
+    margin-top: 100px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.SeccionProductos img{
+    width: 500px;
+    height: 600px;
+}
+
+.SeccionProductos p{
+    font-size: 30px;
+    margin-left: 200px;
+}
+
+.Imagenproducto2{
+    position: relative;
+    margin-left:600px;
+    margin-top: -700px;
+}
+
+.Imagenproducto3{
+    margin-left:300px;
+}
+
+footer{
+    background: black;
+    color: white;
+    width: 94%;
+    height: 380px;
+    padding:40px;
+    position: relative;
+    margin-top: 100px;
+}
+
+.ContenedorTotal{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.ContenedorInfo1{
+    display: flex;
+    justify-content:space-around;
+}
+
+.Colum1{
+    max-width: 600px;  
+}
+
+.Colum2{
+    max-width: 600px;
+}
+
+.row1{
+    margin-top: 20px;
+    display: flex;
+}
+
+.row1 img{
+    width:36px;
+    height:36px;
+}
+
+.row1 p{
+    margin-top: 10px;
+    margin-left: 20px;
+    color: white;
+}
+
+.row2{
+    margin-top: 20px;
+    display: flex;
+}
+
+.row2 img{
+    width:36px;
+    height:36px;
+}
+
+.row2 p{
+    margin-top: 10px;
+    margin-left: 20px;
+    color: white;
+}
+
+.ContenedorInfo2{
+    max-width:100%;
+    text-align: center;
+}
+
