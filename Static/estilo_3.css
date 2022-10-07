@@ -51,7 +51,7 @@ header{
 
 body{
 
-    background-image: url(img/Desktop.jpg);
+    background-image: url(imgs/Desktop.jpg);
     background-size: cover;
 
 }
@@ -255,7 +255,7 @@ nav{
     font-size: 19px;
 
 }
-
+ /*Titulo de Usuario Administrador*/
 .TablaActualizacion .Titulo{
 
     display: flex;
@@ -266,7 +266,7 @@ nav{
     /*background-color:  rgba(215, 9, 9, 0.558);*/
 
 }
-
+ /*Titulo de Usuario Final*/
 .TablaActualizacion .Titulo2{
 
     display: flex;
@@ -277,6 +277,7 @@ nav{
     /*background-color:  rgba(215, 9, 9, 0.558);*/
 
 }
+ /*Titulo de Productos*/
 
 .TablaActualizacion .Titulo3{
 
@@ -289,6 +290,7 @@ nav{
 
 }
 
+/*Tabla Registro*/
 .TablaActualizacion{
 
     font-family: 'Times New Roman', Times, serif;
@@ -314,6 +316,30 @@ nav{
 .TablaActualizacion .Opciones .Buscar{
 
     width: 30%;
+    display: flex;
+
+}
+
+.TablaActualizacion .Opciones .Buscar li{
+
+    margin:0;
+    padding:0;
+    display: inline-block;
+    justify-content: start;
+    align-items: baseline;
+    margin: 2 var(--dt-padding-xs);
+
+}
+
+.TablaActualizacion .Opciones .Buscar li button{
+
+    color: var(--dt-text-color-button);
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: var(--dt-border-radius);
+    background: transparent;
+    cursor: pointer;
 
 }
 
@@ -545,4 +571,235 @@ nav{
 
     background-color: var(--dt-status-NoDisponible-color);
 
+}
+
+/*Ventana Modal*/
+
+.ModalAdmin{
+
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+}
+
+.ModalAdmin .ModalInterfaz{
+
+    background-color: #333;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, .5);
+    width: 40%;
+
+}
+
+.ModalAdmin .Close{
+
+    color: rgb(192,40,40);
+    float: right;
+    font-size: 26px;
+    font-weight: bold;
+
+}
+
+.ModalAdmin .Close:hover, .Close:focus{
+
+    color: #0000;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
+/*Formulario: EXTEND FROM ESTILO_2.CSS*/
+
+.FormularioAdministrador{
+
+    max-width: 700px;
+    width: 98%;
+    background: rgba(0, 0, 0, .5);;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border-radius: 4px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+
+}
+
+.FormularioAdministrador h4 {
+
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+.formularioEditAdmin{
+
+    display: grid;
+    width: 100%;
+    gap:30px;
+}
+
+.nombre_input{
+    position: relative;
+}
+
+.Control{
+
+    width: 100%;
+    background: #333;
+    border: 1 solid #1f53c5;
+    border-radius: 4px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 18px;
+    font-family:'Times New Roman', Times, serif;
+    padding: 10px;
+    transition: .3s ease all;
+    color: white;
+}
+
+.Control:focus{
+
+    border: 1px solid #d3cea0;
+    outline: none;
+    box-shadow: 3px 0px 30px rgb(163,163,163, .0.4);
+}
+
+.Error_nombreAdmin_imput{
+
+    font-size: 18px;
+    margin-bottom: 0;
+    display:none; /*Mensaje de error*/
+}
+
+.Error_nombreAdmin_imput-activo{
+    display: block;
+}
+
+.formulario__validacion-estado{
+    position: absolute;
+    right: 30px;
+    bottom: 16px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+
+/*Validación: EXTEND FROM ESTILO_2.CSS*/
+
+.GrupoAdmin-correcto 
+.formulario__validacion-estado{
+
+    color: rgb(22, 237, 6);
+    opacity: 1;
+}
+
+.GrupoAdmin-incorrecto 
+.formulario__validacion-estado{
+
+    color: rgb(230, 33, 7);
+    opacity: 1;
+}
+
+.GrupoAdmin-incorrecto 
+.nombre_input{
+    border: 1px solid rgb(230, 33, 7);
+    opacity: 1;
+}
+
+.Botones{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.FormularioAdministrador .Boton{
+
+    width: 40%;
+    background: #333;
+    border: none;
+    border-radius: 3px;
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+    margin: 16px 0;
+    font-size: 16px;
+    cursor:pointer;
+    transition: .1s ease all;
+}
+
+.FormularioAdministrador .Boton:hover{
+
+    box-shadow: 3px 0px 20px #d3cea080;
+}
+
+.FormularioAdministrador .Reset{
+
+    width: 40%;
+    background: #333;
+    border: none;
+    border-radius: 3px;
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+    margin: 16px 0;
+    font-size: 16px;
+    cursor:pointer;
+    transition: .1s ease all;
+}
+
+.FormularioAdministrador .Reset:hover{
+
+    box-shadow: 3px 0px 20px #d3cea080;
+}
+
+.FormularioAdministrador .BotonContraseña{
+
+    width: 100%;
+    background: #333;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+    cursor:pointer;
+    transition: .1s ease all;
+    
+}
+
+.FormularioAdministrador .BotonContraseña:hover{
+
+    box-shadow: 3px 0px 20px #d3cea080;
+}
+
+.FormularioAdministrador .BotonUsuario{
+
+    width: 100%;
+    background: #333;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+    cursor:pointer;
+    transition: .1s ease all;
+    
+}
+
+.FormularioAdministrador .BotonUsuario:hover{
+
+    box-shadow: 3px 0px 20px #d3cea080;
 }

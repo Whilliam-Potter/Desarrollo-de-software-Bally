@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizacion del Administrador</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{{url_for('static',filename='estilo_3.css')}}">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1><span style="color: white;">B</span>a<span style="color: white;">ll</span>y</h1>
+        <nav>          
+            <ul class="Menu-SuperAdministrador">
+                <li>
+                    <a href="#">SuperAdministrador</a>
+                    <ul class="MenuVertical-SuperAdministrador">
+                        <li><a href="#">Usuario SuperAdministrador</a></li>
+                        <li><a href="#">Cerrar Sesion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>  
+    </header>  
+    <section>
+        <nav class="MenuDeGestion">
+            <h2>MENU</h2><img class="Logo" src="{{url_for('static',filename='imgs/barra.png')}}" alt="Logo de bally">
+            <ul>
+                <a href="/"><h3>INICIO</h3></a>
+                <h3>Registro:</h3>
+                <ul class="MenuRegistro">
+                    <li><a href="/Resgistro_Administrador">Administrador</a></li>
+                    <li><a href="/Registro_Usuario">Usuario</a></li>
+                </ul>
+                <h3>Atualizacion de Datos:</h3>
+                <ul class="MenuActualizacionDatos">
+                    <li><a href="/Gestion_Admin">Administrador</a></li>
+                    <li><a href="/Gestion_Usuario">Usuario</a></li>
+                </ul>
+                <h3>Gestion de Productos:</h3>
+                <ul class="MenuActualizacionDatos">
+                    <li><a href="/Gestion_Productos">Porductos</a></li>
+                </ul>
+            </ul>
+        </nav>  
+    </section>    
+    <div class="TablaActualizacion">
+        <div class="Opciones">
+            <div class="Herramientas">
+                <ul>
+                    <li>
+                        <button>
+                            <i class="material-icons" title="Añadir">add_circle</i>
+                        </button>
+                    </li>
+                    <li>
+                        <button>
+                            <i class="material-icons" id="Editar" title="Editar">edit</i>
+                        </button>
+                    </li>
+                    <li>
+                        <button>
+                            <i class="material-icons" id="Borrar" title="Borrar">delete</i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="Titulo">Tabla de Usuarios Administrativos</div>
+            <div class="Buscar">
+                <li>
+                    <button>
+                        <i class="material-icons" title="Buscar">search</i>
+                    </button>
+                </li>
+                <input class="EntradaDato" id="" name="" type="text"/>    
+            </div>
+        </div>
+        <table class="TablaDatos" id="TablaDatos">
+            <thead class="CabezaTablaDatos" id="CabezaTablaDatos">
+                <tr>
+                    <th></th><th></th>
+                    <th>Estado</th>
+                    <th>Usuario</th>
+                    <th>Contraseña</th>
+                    <th>Nombre</th>
+                    <th>Cargo</th>
+                    <th>Nacionalidad</th>
+                    <th>Correo</th>
+                </tr>
+            </thead>    
+            <tbody>
+                <!--Aqui va la tabla generada por JavaScript-->
+            </tbody>
+        </table>
+        <div class="Desplazamiento">
+            <div class="ListaObjetos">
+                Mostrar
+                <select class="n-Entradas" name="n-entradas" id="n-entradas">
+                    <option value="15">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="15">15</option>
+                </select>
+                Entradas
+            </div>
+            <div class="Paginas">
+                <ul>
+                    <li><span class="Activado">1</span></li>
+                    <li><button>2</button></li>
+                    <li><button>3</button></li>
+                    <li><button>4</button></li>
+                    <li><span>...</span></li>
+                    <li><button>9</button></li>
+                    <li><button>10</button></li>    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="ModalAdmin" class="ModalAdmin"> <!--Ventana Modal-->
+        <div class="ModalInterfaz">   
+            <span class="Close">X</span>
+            <section  class="FormularioAdministrador">
+                <h4>Actualizacion de Datos del Administrador</h4>
+                <form class="formularioEditAdmin" id="formularioEditAdmin">
+                    <!--Grupo__NombreAdmin-->
+                    <div class="GrupoAdmin" id="Grupo__nombreAdmin">
+                        <div class="nombre_input">
+                            <input class="Control" id="nombreAdmin" name="nombreAdmin" 
+                            placeholder="Nombre" type="text"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div> 
+                        <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+                    </div>
+                    <!--Grupo__subNombreAdmin-->
+                    <div class="GrupoAdmin" id="Grupo__subNombreAdmin">
+                        <div class="nombre_input">
+                            <input class="Control" id="subNombreAdmin" name="subNombreAdmin" 
+                            placeholder="Segundo Nombre" type="text"/>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div> 
+                        <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+                    </div>
+                    <!--Grupo__apellidoAdmin-->
+                    <div class="GrupoAdmin" id="Grupo__apellidoAdmin">
+                        <div class="nombre_input">
+                            <input class="Control" id="apellidoAdmin" name="apellidoAdmin" 
+                            placeholder="Apellido" type="text"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+                    </div>
+                    <!--Grupo__subApellidoAdmin-->
+                    <div class="GrupoAdmin" id="Grupo__subApellidoAdmin">
+                        <div class="nombre_input">
+                            <input class="Control" id="subApellidoAdmin" name="subApellidoAdmin" 
+                            placeholder="Segundo Apellido" type="text"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+                    </div>
+                    <!--Grupo__generodmin-->
+                    <div class="GrupoAdmin" id="Grupo__generoAdmin">
+                        <div class="nombre_input">
+                            <input class="Control" id="generoAdmin" name="generoAdmin" 
+                            placeholder="Genero" type="text"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="Error_nombreAdmin_imput">Selecciona el tipo de documento</p>
+                    </div>
+                    <!--Grupo__correoAdmin-->
+                    <div class="GrupoAdmin" id="Grupo__correoAdmin">
+                        <div class="nombre_input">
+                            <input class="Control" id="correoAdmin" name="correoAdmin" 
+                            placeholder="Correo:@gmail/@outlook" type="email"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+                    </div>
+                    <!--Grupo__typeId-->
+                    <div class="GrupoAdmin" id="Grupo__typeid">
+                        <div class="nombre_input">
+                            <input class="Control" id="typeid" name="typeid" 
+                            placeholder="tipoId" type="text"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="Error_nombreAdmin_imput">Selecciona el tipo de documento</p>
+                    </div>
+                    <!--Grupo__idAdmin-->
+                    <div class="GrupoAdmin" id="Grupo__idAdmin">
+                        <div class="nombre_input">
+                            <input class="Control" id="idAdmin" name="idAdmin" 
+                            placeholder="Id" type="text"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+                    </div>
+                    <!--Grupo__numeroAdmin-->
+                    <div class="GrupoAdmin" id="Grupo__numeroAdmin">
+                        <div class="nombre_input">
+                            <input class="Control" id="numeroAdmin" name="numeroAdmin" 
+                            placeholder="Numero" type="text"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+                    </div>
+                    <!--Grupo__nacionalidadAdmin-->
+                    <div class="GrupoAdmin" id="Grupo__nacionalidadAdmin">
+                        <div class="nombre_input">
+                            <input class="Control" id="nacionalidadAdmin" name="nacionalidadAdmin" 
+                            placeholder="Nacionalidad" type="text"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="Error_nombreAdmin_imput">Selecciona una nacionalidad</p>
+                    </div>
+                    <!--Grupo__cumpleAdmin-->
+                    <div class="GrupoAdmin" id="Grupo__cumpleAdmin">
+                        <div class="nombre_input">
+                            <input class="Control" id="cumpleAdmin" name="cumpleAdmin" 
+                            placeholder="dd/mm/aaaa" type="text"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="Error_nombreAdmin_imput">Selecciona una nacionalidad</p>
+                    </div>
+                    <!--Grupo__GenerarUsuarioAdmin-->
+                    <div class="GrupoAdmin" id="Grupo__GenerarUsuarioAdmin">
+                        <div class="nombre_input">
+                            <input class="Control" id="GenerarUsuarioAdmin" name="GenerarUsuarioAdmin" 
+                            placeholder="Usuario" type="text"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="Error_nombreAdmin_imput">Selecciona una nacionalidad</p>
+                    </div>
+                    <!--Grupo__GenerarContraseñaAdmin-->
+                    <div class="GrupoAdmin" id="Grupo__GenerarContraseñaAdmin">
+                        <div class="nombre_input">
+                            <input class="Control" id="GenerarContraseñaAdmin" name="GenerarContraseñaAdmin" 
+                            placeholder="Contraseña" type="text"/> 
+                        </div> 
+                        <p class="Error_nombreAdmin_imput">Selecciona una nacionalidad</p>
+                    </div>   
+                    <div class="Botones">
+                        <button class="Reset" type="reset">Resetear</button>
+                        <button class="Boton" id="Enviar" type="submit">Actualizar</button>
+                        <!--button: Mejor etiqueta para los borontes-->
+                    </div>
+                </form>   
+            </section>
+        </div> 
+    </div>
+    <script src="{{url_for('static',filename='CrudAdministrador.js')}}" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <footer>
+    </footer>
+</body>
+</html>

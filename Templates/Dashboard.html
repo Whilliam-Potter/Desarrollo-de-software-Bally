@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='estilo.css')}}">
     <title>Dashboard SuperAdministrador</title>
 </head>
 <body>
@@ -23,21 +23,21 @@
         </nav>  
     </header>
     <div class="MenuDeGestion">
-        <h2>MENU</h2><img class="Logo" src="img/barra.png" alt="Logo de bally">
+        <h2>MENU</h2><img class="Logo" src="{{url_for('static',filename='imgs/barra.png')}}" alt="Logo de bally">
         <ul>
             <h3>Registro:</h3>
             <ul class="MenuRegistro">
-                <li><a href="RegistroAdministrador.html">Administrador</a></li>
-                <li><a href="RegistroUsuario.html">Usuario</a></li>
+                <li><a href="/Resgistro_Administrador">Administrador</a></li>
+                <li><a href="/Registro_Usuario">Usuario</a></li>
             </ul>
             <h3>Atualizacion de Datos:</h3>
             <ul class="MenuActualizacionDatos">
-                <li><a href="ActualizacionAdministrador.html">Administrador</a></li>
-                <li><a href="ActualizacionUsuario.html">Usuario</a></li>
+                <li><a href="/Gestion_Admin">Administrador</a></li>
+                <li><a href="/Gestion_Usuario">Usuario</a></li>
             </ul>
             <h3>Gestion de Productos:</h3>
             <ul class="MenuActualizacionDatos">
-                <li><a href="ActualizacionProductos.html">Porductos</a></li>
+                <li><a href="/Gestion_Productos">Porductos</a></li>
             </ul>
         </ul>
     </div>  
@@ -47,21 +47,21 @@
             <!--<p style="color: white;">Aside</p>-->
             <div class="Div1">
                <!--<ps style="color: white;">Div #1</p>-->
-                <img src="img/Producto.png" alt="">
-                <img src="img/Pedido.png" alt="">               
+                <img src="{{url_for('static',filename='imgs/Producto.png')}}" alt="">
+                <img src="{{url_for('static',filename='imgs/Pedido.png')}}" alt="">               
             </div>   
             <div class="Div2">
                 <!--<p style="color: white;">Div #2</p>-->
-                <img src="img/Usuario.png" alt="">
-                <img src="img/Cliente.png" alt="">
+                <img src="{{url_for('static',filename='imgs/Usuario_dashboard.png')}}" alt="">
+                <img src="{{url_for('static',filename='imgs/Cliente.png')}}" alt="">
             </div> 
             <div class="Div3">
                 <!--<p style="color: white;">Div #3</p>-->
-                <img src="img/Pagos.png" alt="" width="500">
+                <img src="{{url_for('static',filename='imgs/Pagos.png')}}" alt="" width="500">
             </div> 
             <div class="Div4">
                 <!--<p style="color: white;">Div #4</p>-->
-                <img src="img/UltimoPedido.png" alt="" width="500">
+                <img src="{{url_for('static',filename='imgs/UltimoPedido.png')}}" alt="" width="500">
             </div> 
             <div>
 

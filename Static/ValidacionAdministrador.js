@@ -95,6 +95,8 @@ const validarCamp = (expresion, input, campo) => {
     }
 }
 
+// Confirmar correo
+
 const validarCorreo2 = () =>{
 
     const inputCorreoAdmin = document.getElementById("correoAdmin");
@@ -117,9 +119,11 @@ const validarCorreo2 = () =>{
     }
 }
 
+// Base para la generacion de la contraseña
+
 const base = "abcdefghijkmnopqrstuvwxyzABCDEFGHIJKMNOPQRSTUVWXTZ0123456789!#$%";
 
-//Generar Contraseña 
+// Generar Contraseña 
 
 function generarPassword(lenght = 12){
     let result = "";
@@ -128,6 +132,8 @@ function generarPassword(lenght = 12){
     }   
     return result;
 };
+
+// Funcion validar tipo de id
 
 function validarTypeId(){
 
@@ -151,6 +157,8 @@ function validarTypeId(){
 
 }
 
+// Funcion para validar el genero
+
 function validarGenero(){
 
     const selectGenero = document.getElementById("generoAdmin").value;
@@ -172,6 +180,8 @@ function validarGenero(){
     }
 
 }
+
+// Funcion para validar la nacionalidad
 
 function validarNacionalidad(){
 
@@ -195,6 +205,8 @@ function validarNacionalidad(){
 
 }
 
+// Funcion para validar la fecha
+
 function validarFecha(){
 
     const selectFecha = document.getElementById("cumpleAdmin").value;
@@ -217,6 +229,8 @@ function validarFecha(){
 
 }
 
+// Control de eventos
+
 inputs.forEach((input) => {
 
     input.addEventListener('keyup', validarFormulario);
@@ -224,12 +238,16 @@ inputs.forEach((input) => {
 
 });
 
+// Generacion de contraseña de usuario
+
 const generarCon = () => {
     const valor = generarPassword();
     console.log(valor);
     formularioAdmin.elements.namedItem("GenerarContraseñaAdmin").value = valor;
     campos["GenerarContraseñaAdmin"]  = true;
 };
+
+// Generacion de usuario
 
 const Usuario = document.getElementById("nombreAdmin");
 
@@ -243,7 +261,9 @@ const generarUsu = () => {
 formularioAdmin.elements.namedItem("BotonContraseña").addEventListener('click', generarCon);
 formularioAdmin.elements.namedItem("BotonUsuario").addEventListener('click', generarUsu);
 
-formularioAdmin.addEventListener('submit', (e) =>{
+// Realizar validacion de todo el formulacion con un submit
+
+formularioAdmin.addEventListener('submit', async e =>{
 
     e.preventDefault();
 
@@ -254,12 +274,58 @@ formularioAdmin.addEventListener('submit', (e) =>{
        && campos.generoAdmin && campos.nacionalidadAdmin 
        && campos.cumpleAdmin && campos.GenerarContraseñaAdmin && campos.GenerarUsuarioAdmin){
         
+        //Enviar datos desde JS en formato (json) a flask//
+
+        const nombreAdmin = formularioAdmin["nombreAdmin"].value
+        const subNombreAdmin = formularioAdmin["subNombreAdmin"].value
+        const apellidoAdmin = formularioAdmin["apellidoAdmin"].value
+        const subApellidoAdmin = formularioAdmin["subApellidoAdmin"].value
+        const generoAdmin = formularioAdmin["generoAdmin"].value
+        const correoAdmin = formularioAdmin["correoAdmin"].value
+        const typeid = formularioAdmin["typeid"].value
+        const idAdmin = formularioAdmin["idAdmin"].value
+        const numeroAdmin = formularioAdmin["numeroAdmin"].value
+        const nacionalidadAdmin = formularioAdmin["nacionalidadAdmin"].value
+        const cumpleAdmin = formularioAdmin["cumpleAdmin"].value
+        const GenerarUsuarioAdmin = formularioAdmin["GenerarUsuarioAdmin"].value
+        const GenerarContraseñaAdmin = formularioAdmin["GenerarContraseñaAdmin"].value
+
+        // enviar registro a la base de datos //
+
+        const response = await fetch('api/addDatosAdmin', {
+            method: 'POST', 
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+
+                nombreAdmin,
+                subNombreAdmin,
+                apellidoAdmin,
+                subApellidoAdmin,
+                generoAdmin,
+                correoAdmin,
+                typeid,
+                idAdmin, 
+                numeroAdmin,
+                nacionalidadAdmin, 
+                cumpleAdmin,
+                GenerarUsuarioAdmin, 
+                GenerarContraseñaAdmin 
+
+            })
+        });
+
+        const dato = await response.json()
+        console.log(dato)
+        //console.log(nombreAdmin, subNombreAdmin, apellidoAdmin, subApellidoAdmin, generoAdmin, 
+            //correoAdmin, typeid, idAdmin, numeroAdmin, nacionalidadAdmin, cumpleAdmin, GenerarUsuarioAdmin, GenerarContraseñaAdmin)     
         formularioAdmin.reset();
         
         document.querySelectorAll('.GrupoAdmin-correcto').forEach((icono) =>{
-            icono.classList.remove('GrupoAdmin-correcto')
-        
+            icono.classList.remove('GrupoAdmin-correcto')       
         });
+
         swal({           
             title: "Satisfatorio",
             text: "Se realizo el Registro",
@@ -282,7 +348,6 @@ formularioAdmin.addEventListener('submit', (e) =>{
         campos["typeid"] = false;
 
     }else{
-
         swal({      
             title: "Mensaje de Error",
             text: "Faltan Casillas por Llenar",
@@ -290,5 +355,4 @@ formularioAdmin.addEventListener('submit', (e) =>{
             button: "Ok"
         })
     }
-
 });
