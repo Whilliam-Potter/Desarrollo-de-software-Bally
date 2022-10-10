@@ -1,1 +1,1 @@
-db.create_all()
+False

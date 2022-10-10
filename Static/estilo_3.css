@@ -136,7 +136,7 @@ nav{
     padding-left: 0px;
     width: 10%;
     height: 9%;
-    position: fixed;
+    position: absolute;
     transition: .4s all;
     z-index:1;
 
@@ -644,6 +644,13 @@ nav{
 }
 
 .formularioEditAdmin{
+
+    display: grid;
+    width: 100%;
+    gap:30px;
+}
+
+.formularioEditUsuario{
 
     display: grid;
     width: 100%;

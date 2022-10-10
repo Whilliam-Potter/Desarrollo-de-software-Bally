@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static',filename='estilo_2.css')}}">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Registro de Usuario</title>
 </head>
 <body>
@@ -46,40 +47,97 @@
     </section>    
     <section  class="FormularioAdministrador">
         <h4>Formulario de Registro del Usuario Final</h4>
-        <form action="/formulario" method="get">
-            <input class="Control" id="nombre" name="nombre" 
-            placeholder="Nombre" type="text"/> <br>
-            <br>
-            <input class="Control" id="nombre" name="nombre" 
-            placeholder="Segundo Nombre" type="text"/> <br>
-            <br>
-            <input class="Control" id="apellido" name="apellido" 
-            placeholder="Apellido" type="text"/> <br>
-            <br>
-            <input class="Control" id="nombre" name="nombre" 
-            placeholder="Segundo Apellido" type="text"/> <br>
-            <br>
-            <input class="Control" id="nombre" name="nombre" 
-            placeholder="Correo:@gmail/@outlook" type="email"/> <br>
-            <br>
-            <input class="Control" id="nombre" name="nombre" 
-            placeholder="Confirmacion del Correo" type="email"/> <br>
-            <br>
-            <input class="Control" id="nombre" name="nombre" 
-            placeholder="Generar Usuario" type="text"/> <br>
-            <br>
-            <button class="Generar" type="submit">Generar</button> <br><br>
-            <input class="Control" id="nombre" name="nombre" 
-            placeholder="Generar Contraseña" type="text"/> <br>
-            <br>
-            <button class="Generar" type="submit">Generar</button> <br><br>
+        <form class="formularioAdmin" id="formularioAdmin">
+            <!--Grupo__NombreAdmin-->
+            <div class="GrupoAdmin" id="Grupo__nombreUsuario">
+                <div class="nombre_input">
+                    <input class="Control" id="nombreUsuario" name="nombreUsuario" 
+                    placeholder="Nombre" type="text"/> 
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div> 
+                <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+            </div>
+            <!--Grupo__subNombreAdmin-->
+            <div class="GrupoAdmin" id="Grupo__subNombreUsuario">
+                <div class="nombre_input">
+                    <input class="Control" id="subNombreUsuario" name="subNombreUsuario" 
+                    placeholder="Segundo Nombre" type="text"/>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div> 
+                <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+            </div>
+            <!--Grupo__apellidoAdmin-->
+            <div class="GrupoAdmin" id="Grupo__apellidoUsuario">
+                <div class="nombre_input">
+                    <input class="Control" id="apellidoUsuario" name="apellidoUsuario" 
+                    placeholder="Apellido" type="text"/> 
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+            </div>
+            <!--Grupo__subApellidoAdmin-->
+            <div class="GrupoAdmin" id="Grupo__subApellidoUsuario">
+                <div class="nombre_input">
+                    <input class="Control" id="subApellidoUsuario" name="subApellidoUsuario" 
+                    placeholder="Segundo Apellido" type="text"/> 
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+            </div>
+            <!--Grupo__generodmin-->
+            <div class="GrupoAdmin" id="Grupo__generoUsuario">
+                <div class="nombre_input">
+                    <select class="Control" onblur="validarGenero()" name="generoUsuario" id="generoUsuario">
+                        <option hidden selected value="">Genero</option>
+                        <option value="Hombre">Hombre</option>
+                        <option value="Mujer">Mujer</option>
+                        <option value="Helicoptero">Helicoptero de Guerra</option>
+                    </select> 
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="Error_nombreAdmin_imput">Selecciona el tipo de documento</p>
+            </div>
+            <!--Grupo__correoAdmin-->
+            <div class="GrupoAdmin" id="Grupo__correoUsuario">
+                <div class="nombre_input">
+                    <input class="Control" id="correoUsuario" name="correoUsuario" 
+                    placeholder="Correo:@gmail/@outlook" type="email"/> 
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+            </div>
+            <!--Grupo__comCorreoAdmin-->
+            <div class="GrupoAdmin" id="Grupo__comCorreoUsuario">
+                <div class="nombre_input">
+                    <input class="Control" id="comCorreoUsuario" name="comCorreoUsuario" 
+                    placeholder="Confirmacion del Correo" type="email"/>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i> 
+                </div>
+                <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+            </div>
             <div>
-                <button class="Reset" type="reset">reset</button>
-                <button class="Boton" type="submit">enviar</button>
+                <input class="Control" id="GenerarUsuarioUsuario" name="GenerarUsuarioUsuario" 
+                placeholder="Generar Usuario" type="text"/> 
+            </div>   
+            <div>
+                <button class="BotonUsuario" id="BotonUsuario" type="button">Generar Usuario</button>
+            </div>
+            <div>
+                <input class="Control" id="GenerarContraseñaUsuario" name="GenerarContraseñaUsuario" 
+                placeholder="Generar Contraseña" type="text"/> 
+            </div>   
+            <div>
+                <button class="BotonContraseña" id="BotonContraseña" type="button">Generar Contraseña</button> 
+            </div>
+            <div class="Botones">
+                <button class="Boton" id="Enviar" type="submit">enviar</button>
+                <button class="Reset" type="reset">resetear</button>
                 <!--button: Mejor etiqueta para los borontes-->
             </div>
         </form>   
     </section>
+    <script src="{{url_for('static',filename='ValidacionUsuario.js')}}" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <footer>
         <br><br><br><br>
     </footer>

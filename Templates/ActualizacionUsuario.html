@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizacion del Administrador</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="estilo_3.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='estilo_3.css')}}">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
     <header>
@@ -25,22 +26,22 @@
     </header>  
     <section>
         <nav class="MenuDeGestion">
-            <h2>MENU</h2><img class="Logo" src="img/barra.png" alt="Logo de bally">
+            <h2>MENU</h2><img class="Logo" src="{{url_for('static',filename='imgs/barra.png')}}" alt="Logo de bally">
             <ul>
-                <a href="Dashboard.html"><h3>INICIO</h3></a>
+                <a href="/"><h3>INICIO</h3></a>
                 <h3>Registro:</h3>
                 <ul class="MenuRegistro">
-                    <li><a href="RegistroAdministrador.html">Administrador</a></li>
-                    <li><a href="RegistroUsuario.html">Usuario</a></li>
+                    <li><a href="/Resgistro_Administrador">Administrador</a></li>
+                    <li><a href="/Registro_Usuario">Usuario</a></li>
                 </ul>
                 <h3>Atualizacion de Datos:</h3>
                 <ul class="MenuActualizacionDatos">
-                    <li><a href="ActualizacionAdministrador.html">Administrador</a></li>
-                    <li><a href="ActualizacionUsuario.html">Usuario</a></li>
+                    <li><a href="/Gestion_Admin">Administrador</a></li>
+                    <li><a href="/Gestion_Usuario">Usuario</a></li>
                 </ul>
                 <h3>Gestion de Productos:</h3>
                 <ul class="MenuActualizacionDatos">
-                    <li><a href="ActualizacionProductos.html">Porductos</a></li>
+                    <li><a href="/Gestion_Productos">Porductos</a></li>
                 </ul>
             </ul>
         </nav>  
@@ -49,7 +50,6 @@
         <div class="Opciones">
             <div class="Herramientas">
                 <ul>
-                    <li><span><input type="checkbox"></span></li>
                     <li>
                         <button>
                             <i class="material-icons" title="Añadir">add_circle</i>
@@ -57,23 +57,23 @@
                     </li>
                     <li>
                         <button>
-                            <i class="material-icons" title="Editar">edit</i>
+                            <i class="material-icons" id="Editar" title="Editar">edit</i>
                         </button>
                     </li>
                     <li>
                         <button>
-                            <i class="material-icons" title="Borrar">delete</i>
-                        </button>
-                    </li>
-                    <li>
-                        <button>
-                            <i class="material-icons" title="link">share</i>
+                            <i class="material-icons" id="Borrar" title="Borrar">delete</i>
                         </button>
                     </li>
                 </ul>
             </div>
-            <div class="Titulo2">Tabla de Usuarios Finales</div>
+            <div class="Titulo">Tabla de Usuarios Administrativos</div>
             <div class="Buscar">
+                <li>
+                    <button>
+                        <i class="material-icons" title="Buscar">search</i>
+                    </button>
+                </li>
                 <input class="EntradaDato" id="" name="" type="text"/>    
             </div>
         </div>
@@ -82,93 +82,17 @@
                 <tr>
                     <th></th>
                     <th></th>
-                    <th>Nombre</th>
                     <th>Usuario</th>
-                    <th>Correo</th>
                     <th>Contraseña</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Genero</th>
+                    <th>Categoria</th>
+                    <th>Correo</th>
                 </tr>
             </thead>    
             <tbody>
-                <tr>
-                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
-                    <td></td>
-                    <td>Wilson Gonzales</td>
-                    <td>Wilgon123</td>
-                    <td>wilson@gmail.com</td>
-                    <td>********</td>
-                </tr>
-                <tr>
-                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
-                    <td></td>
-                    <td>Emma Thorne</td>
-                    <td>Emma123</td>
-                    <td>emma@gmail.com</td>
-                    <td>********</td>
-                </tr>
-                <tr>
-                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
-                    <td></td>
-                    <td>Jarol Orozco</td>
-                    <td>Jarol123</td>
-                    <td>jarol@gmail.com</td>
-                    <td>********</td>
-                </tr>
-                <tr>
-                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
-                    <td></td>
-                    <td>Lucia Gomez</td>
-                    <td>Lucia123</td>
-                    <td>lucia@gmail.com</td>
-                    <td>********</td>
-                </tr>
-                <tr>
-                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
-                    <td></td>
-                    <td>Alberto Mejia</td>
-                    <td>Alberto123</td>
-                    <td>alberto@gmail.com</td>
-                    <td>********</td>
-                </tr>
-                <tr>
-                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
-                    <td></td>
-                    <td>Jeferson Herrera</td>
-                    <td>Jefer123</td>
-                    <td>jeferson@gmail.com</td>
-                    <td>********</td>
-                </tr>
-                <tr>
-                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
-                    <td></td>
-                    <td>Mateo Manitas</td>
-                    <td>Mateo123</td>
-                    <td>mateo@gmail.com</td>
-                    <td>********</td>
-                </tr>
-                <tr>
-                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
-                    <td></td>
-                    <td>Jesica hiraldo</td>
-                    <td>Jesica123</td>
-                    <td>jesica@gmail.com</td>
-                    <td>********</td>
-                </tr>
-                <tr>
-                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
-                    <td></td>
-                    <td>Pedro Meza</td>
-                    <td>Pedro123</td>
-                    <td>pedro@gmail.com</td>
-                    <td>********</td>
-                </tr>
-                <tr>
-                    <td class="CajaRegistro"><input id="" name="" type="checkbox"/>  </td>
-                    <td></td>
-                    <td>Valentina Flores</td>
-                    <td>Valenti123</td>
-                    <td>Valentina@gmail.com</td>
-                    <td>********</td>
-                </tr>
+                <!--Aqui va la tabla generada por JavaScript-->
             </tbody>
         </table>
         <div class="Desplazamiento">
@@ -194,5 +118,95 @@
             </div>
         </div>
     </div>
+    <div id="ModalAdmin" class="ModalAdmin"> <!--Ventana Modal-->
+        <div class="ModalInterfaz">   
+            <span class="Close">X</span>
+            <section  class="FormularioAdministrador">
+                <h4>Actualizacion de Datos del Administrador</h4>
+                <form class="formularioEditUsuario" id="formularioEditUsuario">
+                    <!--Grupo__NombreUsuario-->
+                    <div class="GrupoAdmin" id="Grupo__nombreUsuario">
+                        <div class="nombre_input">
+                            <input class="Control" id="nombreUsuario" name="nombreUsuario" 
+                            placeholder="Nombre" type="text"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div> 
+                        <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+                    </div>
+                    <!--Grupo__subNombreUsuario-->
+                    <div class="GrupoAdmin" id="Grupo__subNombreUsuario">
+                        <div class="nombre_input">
+                            <input class="Control" id="subNombreUsuario" name="subNombreUsuario" 
+                            placeholder="Segundo Nombre" type="text"/>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div> 
+                        <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+                    </div>
+                    <!--Grupo__apellidoUsuario-->
+                    <div class="GrupoAdmin" id="Grupo__apellidoUsuario">
+                        <div class="nombre_input">
+                            <input class="Control" id="apellidoUsuario" name="apellidoUsuario" 
+                            placeholder="Apellido" type="text"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+                    </div>
+                    <!--Grupo__subApellidoUsuario-->
+                    <div class="GrupoAdmin" id="Grupo__subApellidoUsuario">
+                        <div class="nombre_input">
+                            <input class="Control" id="subApellidoUsuario" name="subApellidoUsuario" 
+                            placeholder="Segundo Apellido" type="text"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+                    </div>
+                    <!--Grupo__generoUsuario-->
+                    <div class="GrupoAdmin" id="Grupo__generoUsuario">
+                        <div class="nombre_input">
+                            <input class="Control" id="generoUsuario" name="generoUsuario" 
+                            placeholder="Genero" type="text"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="Error_nombreAdmin_imput">Selecciona el tipo de documento</p>
+                    </div>
+                    <!--Grupo__correoUsuario-->
+                    <div class="GrupoAdmin" id="Grupo__correoUsuario">
+                        <div class="nombre_input">
+                            <input class="Control" id="correoUsuario" name="correoUsuario" 
+                            placeholder="Correo:@gmail/@outlook" type="email"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="Error_nombreAdmin_imput"> Solo puede contener letras</p>
+                    </div>
+                    <!--Grupo__GenerarUsuarioUsuario-->
+                    <div class="GrupoAdmin" id="Grupo__GenerarUsuarioUsuario">
+                        <div class="nombre_input">
+                            <input class="Control" id="GenerarUsuarioUsuario" name="GenerarUsuarioUsuario" 
+                            placeholder="Usuario" type="text"/> 
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="Error_nombreAdmin_imput">Selecciona una nacionalidad</p>
+                    </div>
+                    <!--Grupo__GenerarContraseñaUsuario-->
+                    <div class="GrupoAdmin" id="Grupo__GenerarContraseñaUsuario">
+                        <div class="nombre_input">
+                            <input class="Control" id="GenerarContraseñaUsuario" name="GenerarContraseñaUsuario" 
+                            placeholder="Contraseña" type="text"/> 
+                        </div> 
+                        <p class="Error_nombreAdmin_imput">Selecciona una nacionalidad</p>
+                    </div>   
+                    <div class="Botones">
+                        <button class="Reset" type="reset">Resetear</button>
+                        <button class="Boton" id="Enviar" type="submit">Actualizar</button>
+                        <!--button: Mejor etiqueta para los borontes-->
+                    </div>
+                </form>   
+            </section>
+        </div> 
+    </div>
+    <script src="{{url_for('static',filename='CrudUsuario.js')}}" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <footer>
+    </footer>
 </body>
 </html>

@@ -16,7 +16,7 @@ header{
 
 body{
     margin: 0;
-    background-image: url(img/WhisList.jpg);
+    background-image: url(../Static/imgs/WhisList.jpg);
     background-size: cover;
     display: flex;
     flex-direction: column;

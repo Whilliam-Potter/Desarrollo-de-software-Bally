@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizacion del Administrador</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="estilo_3.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='estilo_3.css')}}">
 </head>
 <body>
     <header>
@@ -25,22 +25,22 @@
     </header>  
     <section>
         <nav class="MenuDeGestion">
-            <h2>MENU</h2><img class="Logo" src="img/barra.png" alt="Logo de bally">
+            <h2>MENU</h2><img class="Logo" src="{{url_for('static',filename='imgs/barra.png')}}" alt="Logo de bally">
             <ul>
-                <a href="Dashboard.html"><h3>INICIO</h3></a>
+                <a href="/"><h3>INICIO</h3></a>
                 <h3>Registro:</h3>
                 <ul class="MenuRegistro">
-                    <li><a href="RegistroAdministrador.html">Administrador</a></li>
-                    <li><a href="RegistroUsuario.html">Usuario</a></li>
+                    <li><a href="/Resgistro_Administrador">Administrador</a></li>
+                    <li><a href="/Registro_Usuario">Usuario</a></li>
                 </ul>
                 <h3>Atualizacion de Datos:</h3>
                 <ul class="MenuActualizacionDatos">
-                    <li><a href="ActualizacionAdministrador.html">Administrador</a></li>
-                    <li><a href="ActualizacionUsuario.html">Usuario</a></li>
+                    <li><a href="/Gestion_Admin">Administrador</a></li>
+                    <li><a href="/Gestion_Usuario">Usuario</a></li>
                 </ul>
                 <h3>Gestion de Productos:</h3>
                 <ul class="MenuActualizacionDatos">
-                    <li><a href="ActualizacionProductos.html">Porductos</a></li>
+                    <li><a href="/Gestion_Productos">Porductos</a></li>
                 </ul>
             </ul>
         </nav>  

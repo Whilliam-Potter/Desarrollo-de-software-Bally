@@ -32,7 +32,6 @@ main{
 
 aside{
     
-    margin:auto;
     margin-top: 20px;
     width: 1410px;
     height: 820px;
@@ -44,7 +43,11 @@ aside{
 body{
 
     background-image: url(imgs/Desktop.jpg);
+    margin: 0;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 
 }
 
@@ -52,6 +55,20 @@ nav{
 
     max-width: 900px; 
     font-size: 20px;
+
+}
+
+/*Pie de pagina*/
+
+.Below{
+
+    display: flex;
+    align-items: center;
+    background-color: rgb(43, 39, 39);
+    height: 110px;
+    padding-left: 30px;
+    margin-top: 100px;
+    color: white;
 
 }
 
@@ -211,10 +228,11 @@ nav{
 
 .MenuDeGestion{
 
+    margin-top: 71px;
     padding-left: 0px;
     width: 10%;
     height: 9%;
-    position: fixed;
+    position:absolute;
     transition: .4s all;
     z-index:1;
 
