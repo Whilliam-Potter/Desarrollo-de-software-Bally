@@ -4,7 +4,7 @@ const inputs = document.querySelectorAll('#formularioEditAdmin');
 const expresiones = {
 	usuario: /^(?=(?:.*\d){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})(?=(?:.*[@$?¡\-_]){1})\S{8,16}$/, // Letras, numeros, guion y guion_bajo. 8 a 16 digitos.
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-	password: /^(?=(?:.*\d){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})(?=(?:.*[@$?¡\-_]){1})\S{8,16}$/, // Letras, numeros, guion y guion_bajo. 8 a 16 digitos.
+	password: /^(?=(?:.*\d){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})(?=(?:.*[@$?¡\-_]){1})\S{8,200}$/, // Letras, numeros, guion y guion_bajo. 8 a 16 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     identificacion: /^[0-9]{1,10}$/,
 	telefono: /^\d{7,14}$/, // 7 a 14 numeros.
@@ -164,8 +164,8 @@ function renderUser(users){
             <td></td>
             <td><span class="Disponible"></span></td>
             <td>${user.usuario}</td>
-            <td>${user.clave}</td>
             <td>${user.nombre}</td>
+            <td>${user.apellido}</td>
             <td>Admin</td>
             <td>${user.nacionalidad}</td>
             <td>${user.correo}</td>

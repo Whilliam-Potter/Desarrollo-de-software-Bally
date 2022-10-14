@@ -1,34 +1,208 @@
 body{
-    background: url(../Static/imgs/bally1.jpg);
+    background: url(imgs/bally1.jpg);
     background-size: 100%;
 }
 
-h1{
-    text-align: center;
-    font-family:'Courier New', Courier, monospace;
+.Login{
+
+    max-width: 700px;
+    width:500px;
+    background: rgba(0, 0, 0, .5);;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'Times New Roman', Times, serif;
+    box-shadow: 7px 13px 37px #000;
+
+}
+
+.Login h1 {
+
     font-size: 50px;
+    margin-bottom: 35px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+
+
+}
+
+.Login h2 {
+
+    font-size: 22px;
+    margin-bottom: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+
+}
+
+.Login p{
+
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.FormularioSuperLogin{
+
+    display: grid;
+    width: 100%;
+    gap:30px;
+}
+
+.input{
+    
+    position: relative;
+    color: white;
+}
+
+.Control{
+    
+    width: 96%;
+    background: #333;
+    border: 1 solid #1f53c5;
+    border-radius: 4px;
+    height: 10px;
+    line-height: 45px;
+    font-size: 18px;
+    font-family:'Times New Roman', Times, serif;
+    padding: 10px;
+    transition: .3s ease all;
+    color: white;
+
+}
+
+.SeeCheckBox{
+    
+    font-size: 18px;
+    font-family:'Times New Roman', Times, serif;
+    padding: 10px;
+    color: white;
+}
+
+.Control:focus{
+
+    border: 1px solid #d3cea0;
+    outline: none;
+    box-shadow: 3px 0px 30px rgb(163,163,163, .0.4);
+}
+
+.Botones{
+
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.Login .Boton{
+
+    width: 40%;
+    background: #333;
+    border: none;
+    border-radius: 3px;
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+    margin: 16px 0;
+    font-size: 16px;
+    cursor:pointer;
+    transition: .1s ease all;
+}
+
+.Login .Boton:hover{
+
+    box-shadow: 3px 0px 20px #d3cea080;
+}
+
+.Login .Check{
+
+    width: 40%;
+    background: #333;
+    border: none;
+    border-radius: 3px;
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+    margin: 16px 0;
+    font-size: 16px;
+    cursor:pointer;
+    transition: .1s ease all;
     
 }
 
-form {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    width: 200px;
-    padding: 16px;
-    border-radius: 10px;
-    margin: auto;
-    background-color:darkgray;
+.Check a{
+    color: white;
+    text-decoration: none;
 }
 
-form input{
-    padding:6px 10px;
-    border: 1px solid #f6f6f6;
-    border-radius: 3px;
-    display: inline-block;
+.Login .Check:hover{
+
+    box-shadow: 3px 0px 20px #d3cea080;
 }
 
-button{
+.Question{
+
+    align-items: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 15px;
-    width: 100%;
-    padding: 5px; 
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.Question a{
+
+    text-decoration: none;
+    color: white;
+}
+
+.Question a:hover{
+
+    box-shadow: 3px 0px 20px #d3cea080;
+
+}
+
+/*Validacion*/
+
+.Error_nombreAdmin_imput{
+
+    font-size: 18px;
+    margin-bottom: 0;
+    display:none; /*Mensaje de error*/
+}
+
+.Error_nombreAdmin_imput-activo{
+    display: block;
+}
+
+.formulario__validacion-estado{
+    position: absolute;
+    right: 20px;
+    bottom: 12px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+
+/*Validación*/
+
+.GrupoAdmin-correcto 
+.formulario__validacion-estado{
+
+    color: rgb(22, 237, 6);
+    opacity: 1;
+}
+
+.GrupoAdmin-incorrecto 
+.formulario__validacion-estado{
+
+    color: rgb(230, 33, 7);
+    opacity: 1;
+}
+
+.GrupoAdmin-incorrecto 
+.input{
+    border: 1px solid rgb(230, 33, 7);
+    opacity: 1;
 }

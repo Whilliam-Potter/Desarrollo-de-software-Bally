@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuario</title>
-    <link rel="icon" href="../img/Bally-logo2.ico">
-    <link rel="stylesheet" type="text/css" href="EstiloVistaFormularioRegistroUsuario.css">
+    <link rel="icon" href="{{url_for('static',filename='imgs/Bally-logo2.ico')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='EstiloVistaFormularioRegistroUsuario.css')}}">
 </head>
 <body>
     <nav class="navegacion">
         <ul>
             <li id="Inicio">
-                <a href=""><img src="../img/Bally-logo.jpg" width="130" height="30"></a>
+                <a href=""><img src="{{url_for('static',filename='imgs/Bally-logo.jpg')}}" width="130" height="30"></a>
             </li>
             
             <li id="Buscador">
                 <input type="text" placeholder="Buscar" required>
                 <div class="boton">
-                    <img src="../img/Buscador.png" width="20" height="20">
+                    <img src="{{url_for('static',filename='imgs/Buscador.png')}}" width="20" height="20">
                 </div>
             </li>
 
@@ -41,10 +41,10 @@
             </li>
 
             <li id="Usuario">
-                <a href=""><img src="../img/Usuario.png" width="20" height="20"></a>
+                <a href=""><img src="{{url_for('static',filename='imgs/Usuario.png')}}" width="20" height="20"></a>
             </li>
             <li id="Administracion">
-                <a href=""><img src="../img/Administrador.png" width="20" height="20"></a>
+                <a href=""><img src="{{url_for('static',filename='imgs/Administrador.png')}}" width="20" height="20"></a>
             </li>
         </ul>
     </nav>
@@ -377,27 +377,27 @@
            <h1>Redes Sociales</h1>
 
            <div class="row1">
-                <a href=""><img src="../img/facebook.png" alt=""></a>
+                <a href=""><img src="{{url_for('static',filename='imgs/facebook.png')}}" alt=""></a>
                 <p>Siguenos en Facebook</p>
            </div> 
 
            <div class="row1">
-                <a href=""><img src="../img/twiter.png" alt=""></a>
+                <a href=""><img src="{{url_for('static',filename='imgs/twiter.png')}}" alt=""></a>
                 <p>Siguenos en Twiter</p>
            </div> 
 
            <div class="row1">
-                <a href=""><img src="../img/instagram.png" alt=""></a>
+                <a href=""><img src="{{url_for('static',filename='imgs/instagram.png')}}" alt=""></a>
                 <p>Siguenos en Instagram</p>
            </div> 
 
            <div class="row1">
-                <a href=""><img src="../img/youtube.png" alt=""></a>
+                <a href=""><img src="{{url_for('static',filename='imgs/youtube.png')}}" alt=""></a>
                 <p>Siguenos en Youtube</p>
            </div> 
 
            <div class="row1">
-                <a href=""><img src="../img/pinterest.png" alt=""></a>
+                <a href=""><img src="{{url_for('static',filename='imgs/pinterest.png')}}" alt=""></a>
                 <p>Siguenos en Pinterest</p>
            </div> 
                 </div>
@@ -406,12 +406,12 @@
                     <h1>Información de contacto</h1> 
 
                     <div class="row2">
-                        <img src="../img/telefono.png" alt="">
+                        <img src="{{url_for('static',filename='imgs/telefono.png')}}" alt="">
                         <p>00800 1851 1851</p>
                     </div> 
 
                     <div class="row2">
-                        <img src="../img/mensaje.jpg" alt="">
+                        <img src="{{url_for('static',filename='imgs/mensaje.jpg')}}" alt="">
                         <p>clientservicesEU@bally.ch</p>
                     </div> 
                 </div>

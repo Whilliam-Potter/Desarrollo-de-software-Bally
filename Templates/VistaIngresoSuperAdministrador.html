@@ -4,21 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{url_for('static',filename='imgs/Bally-logo2.ico')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='EstiloVentanaIngresoAdministradores.css')}}">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Administración</title>
-    <link rel="stylesheet" type="text/css" href="../Static/EstiloVentanaIngresoAdministradores.css">
 </head>
 <body>
-    <h1>BALLY</h1>
-    <form action="">
-        <p>ID Usuario:<br>
-            <input type="tel">
-        </p>
-        <p>Contraseña:<br>
-            <input type="password"><br><br>
-            <input type="checkbox" onclick="">Ver Contraseña<br>
-        </p>
-        <button type="submit" value="Enviar">Ingresar</button><br><br>
-        <a href="">¿Olvidaste tu Contraseña?</a>
-    </form>
+    <section class="Login">
+        <h1><span style="color: white;">B</span>A<span style="color: white;">LL</span>Y</h1>
+        <form class="FormularioSuperLogin" id="FormularioSuperLogin">
+            <div class="GrupoAdmin" id="Grupo__GenerarUsuarioUsuario">
+                <h2>ID Usuario:</h2>
+                <div class="input">
+                        <input class="Control" id="GenerarUsuarioUsuario" name="GenerarUsuarioUsuario" type="text"/> 
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i> 
+                </div>
+                <p style="color: white;" class="Error_nombreAdmin_imput">Minumo de 8 caracteres, maximo 16.
+                    Debe contener una letra mañuscula, un numero, y un caracter especial {@,$,?,¡}.
+                </p>
+            </div>
+            <div class="GrupoAdmin" id="Grupo__GenerarContraseñaUsuario">
+                <h2>Contraseña:</h2>
+                <div class="input">
+                        <input class="Control" id="GenerarContraseñaUsuario" name="GenerarContraseñaUsuario" type="text"/>
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>  
+                </div>
+                <p class="Error_nombreAdmin_imput">minumo de 8 caracteres, maximo 16</p>
+                <p class="Error_nombreAdmin_imput">Debe contener una letra mañuscula, un numero, y un caracter especial</p>
+            </div>
+            <div class="SeeCheckBox">
+                <input type="checkbox" onclick="">  Ver Contraseña
+            </div>
+            <div class="Botones">
+                <button class="Boton" type="submit" value="Enviar">Ingresar</button>
+                <button class="Check" type="button" value="Registrar"><a href="/formularioSuperLogin">Registrar</a></button>
+            </div>
+            <div class="Question">
+                <a href="">¿Olvidaste tu Contraseña?</a>
+            </div>
+        </form>
+    </section>
+    <script src="{{url_for('static',filename='SuperLogin.js')}}" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <footer></footer>
 </body>
 </html>

@@ -1,10 +1,12 @@
-from flask import Flask, jsonify, render_template, request, jsonify
+from flask import Flask, jsonify, render_template, request, jsonify, session, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
 from logging import exception
 
 #from logging import exception
 
 app = Flask(__name__)
+app.secret_key = 'my_secret_key'
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database\\mainDataBase.db'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
@@ -19,14 +21,14 @@ class BaseDatosAdmin(db.Model):
     apellido = db.Column(db.String(200), unique=False, nullable=False)
     subApellido = db.Column(db.String(200), unique=False, nullable=False)
     genero = db.Column(db.String(200), unique=False, nullable=False)
-    correo = db.Column(db.String(200), unique=False, nullable=False)
+    correo = db.Column(db.String(200), unique=True, nullable=False)
     tipoIdentificacion = db.Column(db.String(200), unique=False, nullable=False)
-    numeroIdentificacion = db.Column(db.Integer)
-    numero = db.Column(db.Integer)
+    numeroIdentificacion = db.Column(db.Integer, unique=True)
+    numero = db.Column(db.Integer, unique=True)
     nacionalidad = db.Column(db.String(200), unique=False, nullable=False)
     fechaNacimiento = db.Column(db.String(200), unique=False, nullable=False)
-    usuario = db.Column(db.String(200), unique=False, nullable=False)
-    clave = db.Column(db.String(200), unique=False, nullable=False)
+    usuario = db.Column(db.String(200), unique=True, nullable=False)
+    clave = db.Column(db.String(200), unique=True, nullable=False)
     
     def __init__(self, nombre, subNombre, apellido, subApellido, genero, correo, tipoIdentificacion, numeroIdentificacion, numero, nacionalidad, fechaNacimiento, usuario, clave):
         super().__init__()
@@ -43,7 +45,7 @@ class BaseDatosAdmin(db.Model):
         self.nacionalidad = nacionalidad #10
         self.fechaNacimiento = fechaNacimiento #11
         self.usuario = usuario #12
-        self.clave = clave #13
+        self.clave = self._create_password(clave) #13
     
     def __str__(self):
         return "nombre: {}, subNombre: {}, apellido: {}, subApellido: {}, genero: {}, correo: {}, tipoIdentificacion: {}, numaeroIdentificacion: {}, numero: {}, nacionalidad: {}, fechaNacimiento: {}, usuario: {}, clave: {}".format(
@@ -80,6 +82,12 @@ class BaseDatosAdmin(db.Model):
             "clave": self.clave    
         }
 
+    def _create_password(self, password):
+        return generate_password_hash(password)
+
+    def verify_password(self, password):
+        return check_password_hash(self.clave, password)
+
 #//////// Modelo_Clase_Usuario /////////
 
 class  BaseDatosUsuario(db.Model):
@@ -91,8 +99,8 @@ class  BaseDatosUsuario(db.Model):
     subApellido = db.Column(db.String(200), unique=False, nullable=False)
     genero = db.Column(db.String(200), unique=False, nullable=False)
     correo = db.Column(db.String(200), unique=True, nullable=False)
-    usuario = db.Column(db.String(200), unique=False, nullable=False)
-    clave = db.Column(db.String(200), unique=False, nullable=False)
+    usuario = db.Column(db.String(200), unique=True, nullable=False)
+    clave = db.Column(db.String(200), unique=True, nullable=False)
     
     def __init__(self, nombre, subNombre, apellido, subApellido, genero, correo, usuario, clave):
         super().__init__()
@@ -103,7 +111,7 @@ class  BaseDatosUsuario(db.Model):
         self.genero = genero #5
         self.correo = correo #6
         self.usuario = usuario #7
-        self.clave = clave #78
+        self.clave = self._create_password(clave) #8
     
     def __str__(self):
         return "nombre: {}, subNombre: {}, apellido: {}, subApellido: {}, correo: {}, usuario: {}, clave: {}".format(
@@ -128,6 +136,50 @@ class  BaseDatosUsuario(db.Model):
             "correo": self.correo,
             "usuario": self.usuario,
             "clave": self.clave    
+        }
+
+    def _create_password(self, password):
+        return generate_password_hash(password)
+
+    def verify_password(self, password):
+        return check_password_hash(self.clave, password)
+
+#//////// Modelo_Clase_Productos_Hombre /////////
+
+class BaseDeDatosProductosMaculinos(db.Model):
+    
+    rowid = db.Column(db.Integer, primary_key=True) #clave primaria, rowid: id de la fila
+    imagen = db.Column(db.String(200), unique=True, nullable=False)
+    categoria = db.Column(db.String(200), unique=False, nullable=False)
+    marca = db.Column(db.String(200), unique=False, nullable=False)
+    cantidad = db.Column(db.Integer)
+    precio = db.Column(db.Integer)
+
+    def __init__(self, imagen, categoria, marca, cantidad, precio):
+        super().__init__()
+        self.imagen = imagen #1
+        self.categoria = categoria #2
+        self.marca = marca #3
+        self.cantidad = cantidad #4
+        self.precio = precio #5
+    
+    def __str__(self):
+        return "imagen: {}, categoria: {}, marca: {}, cantidad: {}, precio: {}".format(
+        self.imagen,
+        self.categoria, 
+        self.marca, 
+        self.cantidad,
+        self.precio
+        )
+    
+    def serialize(self):
+        return{
+            "rowid": self.rowid,
+            "imagen": self.imagen,
+            "categoria": self.categoria,
+            "marca": self.marca,
+            "cantidad": self.cantidad,
+            "precio": self.precio
         }
 
 #///////////// Rutas ////////////////
@@ -176,10 +228,27 @@ def Gestion_Producto():
 
 #Ruta login
 
-@app.route('/Login')
+@app.route('/SuperLogin')
 
-def Login():
-    return render_template("")
+def SuperLogin():
+    return render_template('VistaIngresoSuperAdministrador.html')
+
+#Ruta Formulario login
+
+@app.route('/formularioSuperLogin')
+
+def formularioSuperLogin():
+    return render_template('VistaFormulariodeRegistrodeUsuario.html')
+
+@app.route('/index')
+
+def index():
+    return render_template('Index.html')
+
+@app.route('/ListaDeDeseos')
+
+def ListaDeseo():
+    return render_template('ListaDeseos.html')
 
 #///////////// Rutas para la Base de Datos Admin ////////////////
 
@@ -276,7 +345,6 @@ def addDatosAdmin():
             fechaNacimiento = DatosJsAdmin["cumpleAdmin"]
             usuario = DatosJsAdmin["GenerarUsuarioAdmin"]
             clave = DatosJsAdmin["GenerarContraseñaAdmin"]
-
             baseDatosAdmin = BaseDatosAdmin(nombre, subNombre, apellido, subApellido, genero, correo, tipoIdentificacion, int(numeroIdentificacion), int(numero), nacionalidad, fechaNacimiento, usuario, clave)
             db.session.add(baseDatosAdmin)
             db.session.commit()
@@ -373,7 +441,7 @@ def addDatosUsuario():
             correo = DatosJsUsuario["correoUsuario"]
             usuario = DatosJsUsuario["GenerarUsuarioUsuario"]
             clave = DatosJsUsuario["GenerarContraseñaUsuario"]
-
+            #password_encrip_usuario = generate_password_hash(clave)
             baseDatosUsuario = BaseDatosUsuario(nombre, subNombre, apellido, subApellido, genero, correo, usuario, clave)
             db.session.add(baseDatosUsuario)
             db.session.commit()
@@ -382,9 +450,170 @@ def addDatosUsuario():
         else:
             print("Algo paso")
     except Exception:
-             exception("\n[SERVER]: ERROR IN RUTE /addDatosAdmin. log: \n")
+             exception("\n[SERVER]: ERROR IN RUTE /addDatosUsuario. log: \n")
              return jsonify({"msg": "Algo ha salido mal"}), 500
+
+#//////////////////// Autenticacion Login ///////////////////////             
+
+@app.route('/api/ingresoSesion', methods=['POST'])
+def login():
+    try:
+        if request.method == 'POST':
+
+            DatosJsUsuario = request.get_json()
+            usuario = DatosJsUsuario["GenerarUsuarioUsuario"]
+            clave = DatosJsUsuario["GenerarContraseñaUsuario"]
+            print(generate_password_hash(clave))
+            User = BaseDatosUsuario.query.filter_by(usuario = usuario).first()
+            
+            if User is not None and User.verify_password(clave):
+
+                mensaje = "Bienvenido {}".format(usuario)
+                print(mensaje)
+                session['username'] = usuario
+                mensaje = 'Usuario'
+                return jsonify(mensaje), 200 
+
+            elif User is None:
+
+                print("Admin")
+                DatosJsAdmin = request.get_json()
+                usuario = DatosJsAdmin["GenerarUsuarioUsuario"]
+                clave = DatosJsAdmin["GenerarContraseñaUsuario"]
+                print(usuario)
+                print(clave)
+                UserAdmin = BaseDatosAdmin.query.filter_by(usuario = usuario).first()
+                #print(UserAdmin.usuario)
+                print(generate_password_hash(clave))
+
+                if UserAdmin is not None and UserAdmin.verify_password(clave):
+                    mensaje = "Bienvenido Admin {}".format(usuario)
+                    print(mensaje)
+                    session['userAdmin'] = usuario
+                    mensaje = 'Admin'
+                    return jsonify(mensaje), 200 
+                else:
+                    print("Error en la verificacion")
+                    mensaje = 'error'
+                    return jsonify(mensaje), 200 
+            else:
+                print("Error en la verificacion")
+                mensaje = 'error'
+                return jsonify(mensaje), 200 
+
+    except Exception:
+            exception("\n[SERVER]: ERROR IN RUTE /ingresoSesion. log: \n")
+            return jsonify({"msg": "Algo ha salido mal"}), 500
+
+#///////////// Rutas para la Base de Datos Producto Masculino ////////////////
+
+# /////// Ruta Post Datos Productos Masculinos ////////
+
+@app.route('/api/addDatosProductosMasculinos', methods=['POST'])
+
+def addDatosProductosMasculinos():
+    try:
+        if request.method == 'POST':
+            DatosJsProductos = request.get_json()
+            imagen = DatosJsProductos["imagen"]
+            categoria = DatosJsProductos["categoria"]
+            marca = DatosJsProductos["marca"]
+            cantidad = DatosJsProductos["cantidad"]
+            precio = DatosJsProductos["precio"]
+            baseDatosProductoMasculino = BaseDeDatosProductosMaculinos(imagen, categoria, marca, cantidad, precio)
+            db.session.add(baseDatosProductoMasculino)
+            db.session.commit()
+
+            return jsonify(baseDatosProductoMasculino.serialize()), 200 
+        else:
+            print("Algo paso")
+    except Exception:
+             exception("\n[SERVER]: ERROR IN RUTE /addDatosProductosMasculinos. log: \n")
+             return jsonify({"msg": "Algo ha salido mal"}), 500
+
+# /////// Ruta Change Datos Productos Masculinos ////////
+
+@app.route("/api/SearchDatosProductosMasculinos", methods=["POST"])
+def searchDatoProductos():
+    try:
+        DatosJsProductos = request.get_json()
+        categoria = DatosJsProductos["categoria"]
+        print(DatosJsProductos)
+        print(categoria)
+        searchDatoProductos = BaseDeDatosProductosMaculinos.query.filter(BaseDeDatosProductosMaculinos.categoria.like(f"%{categoria}%")).first()
+        print(searchDatoProductos)
+        if not searchDatoProductos:
+            return jsonify({"msg": "La id no existe"}), 200
+        else:
+            return jsonify(searchDatoProductos.serialize()), 200 
+
+    except Exception:
+        exception("[SERVER]: Error ->")
+        return jsonify({"msg": "Ha ocurrido un error"}), 500
+
+# /////// Ruta Get Datos Productos Masculinos ////////
+
+@app.route("/api/DatosProductosMasculinos", methods=["GET"])
+def getDatosProductosMasculinos():
+    try:
+        baseDatosProductosMasculinos = BaseDeDatosProductosMaculinos.query.all()
+        toReturn = [rowid.serialize() for rowid in baseDatosProductosMasculinos]
+        return jsonify(toReturn), 200
+    except Exception:
+        exception("[SERVER]: Error ->")
+        return jsonify({"msg": "Ha ocurrido un error"}), 500
+
+# /////// Ruta Delete Datos Productos Masculinos////////
+
+@app.route("/api/deleteDatProductoMasculinos/<rowid>")
+def deleteDatosProductosMasculinos(rowid):
+    try:
+        deleteDatosProductosMasculinos = BaseDeDatosProductosMaculinos.query.filter_by(rowid=int(rowid)).first()
+        db.session.delete(deleteDatosProductosMasculinos)
+        db.session.commit()
+
+        return jsonify({"msg": "El id fue eliminado"}), 200 
+        
+    except Exception:
+        exception("[SERVER]: Error ->")
+        return jsonify({"msg": "No existe la id"}), 500
+
+# /////// Ruta Get un Dato de un Producto Masculino ////////
+
+@app.route("/api/getOneDatoProductoMasculino/<rowid>")
+def getOneDatoProductoMasculino(rowid):
+    try:
+        getOneDatoProductoMasculino = BaseDeDatosProductosMaculinos.query.filter_by(rowid=int(rowid)).first()
+        db.session.commit()
+        
+        if not getOneDatoProductoMasculino:
+            return jsonify({"msg": "La id no existe"}), 200
+        else:
+            return jsonify(getOneDatoProductoMasculino.serialize()), 200 
+
+    except Exception:
+        exception("[SERVER]: Error ->")
+        return jsonify({"msg": "Ha ocurrido un error"}), 500
+
+# /////// Ruta update Datos Productos ////////
+
+@app.route('/api/updateDatoProducto/<rowid>', methods=['PUT'])
+def updateDatoProducto(rowid):
+    try:
+        UpdateProducto = BaseDeDatosProductosMaculinos.query.filter_by(rowid=int(rowid)).first()
+        DatosJsProducto = request.get_json()
+        UpdateProducto.imagen = DatosJsProducto["imagen"]
+        UpdateProducto.categoria = DatosJsProducto["categoria"]
+        UpdateProducto.marca = DatosJsProducto["marca"]
+        UpdateProducto.cantidad = DatosJsProducto["cantidad"]
+        UpdateProducto.precio = DatosJsProducto["precio"]
+        
+        db.session.commit()
+        return jsonify(UpdateProducto.serialize()), 200 
+    except Exception:
+        exception("[SERVER]: Error ->")
+        return jsonify({"msg": "Ha ocurrido un error"}), 500
 
 
 if __name__ == '__main__':
-    app.run(port = 5000, debug = True)
+    app.run(host='127.0.0.1', port=145, ssl_context=('micertificado.pem','llaveprivada.pem'), debug = True)
